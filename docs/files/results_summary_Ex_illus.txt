@@ -1,0 +1,78 @@
+Information about the simulation:
+---------------------------------
+Compute the SNR reached when observing the object during 1 exposure(s) of 5.00 seconds
+Object: /data/calspec//bd02d3375_stis_001.txt
+
+Information about Passband:
+----------------------------
+Filter: COLIBRI r
+Cut_on: 5495 angstroms
+Effective wavelength: 6199 angstroms
+Cut_off: 6895 angstroms
+
+Information about Local conditions:
+----------------------------
+Site: OAN_Ratir_X1.5
+Seeing at zenith: 1.00
+Elevation: 41.90 degrees
+Airmass: 1.50
+Moon age: 7.00
+
+MEAN EFFICENCIES:
+------------------
+Obscuration: 0.80 
+Telescope: 0.57 (+obs: 0.46) 
+Instrument: 0.67 
+Optics (tel+inst): 0.38  (+obs: 0.30) 
+Filter: 0.85 
+Atmosphere: 0.89 
+Camera: 0.91 
+System: 0.38 (+obs: 0.30)
+
+Zeropoint: 24.12 (AB mag) 
+
+
+A magnitude (AB system) of 9.81 in r band within a total exposure time of 5.00 seconds splited in 1 exposure(s), implies a total SNR of :
+
+	 - Integrated SNR over 1 pixels: 1375.86 
+
+
+A magnitude (AB system) of 9.81 in r band within a total exposure time of 5.00 seconds splited in 1 exposure(s), implies a SNR for the central pixel of of :
+
+	 - SNR of the central pixel: 1429.23 
+
+
+Full well capacity of 1 pixel: 350000.00 (electrons)
+
+--------- One pixel only------------------
+
+Photo-electrons created: central pix for 1 exposure(s) of 5.00 sec 
+	by:
+	- Object:         2042807.68   (electrons)
+	- Sky:                 42.44   (electrons)
+	- Readout:              8.00   (electrons)
+	- Dark current:         0.01   (electrons)
+	- Digitization:         0.43   (electrons)
+
+SNR: -central pixel: 1429.23
+
+Total of electrons collected in the central pixel during an exposure time of 5 seconds: 2042858.56 
+--> Central pixel saturated: number of electrons > Full well Capacity
+
+
+
+--------- Integrated over 1 pixels------------------
+
+Photo-electrons created: brightest pix |  total of 1 pixels, 1 exposure(s) of 5.00 sec 
+	by:
+	- Object:         2042807.68   |   1893093.96   (electrons)
+	- Sky:                 42.44   |        42.44   (electrons)
+	- Readout:              8.00   |         8.00   (electrons)
+	- Dark current:         0.01   |         0.01   (electrons)
+	- Digitization:         0.43   |         0.43   (electrons)
+
+SNR: -central pixel: 1429.23
+     -integrated over 1 pixels: 1375.86
+
+Total of electrons collected in the brightest pixel during an exposure time of 5 seconds: 2042858.56 
+--> Brightest pixel saturated: number of electrons > Full well Capacity 

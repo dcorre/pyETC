@@ -1,0 +1,83 @@
+Information about the simulation:
+---------------------------------
+Compute the SNR reached when observing the object during 1 exposure(s) of 20.00 seconds
+Object: magnitude of 18.00
+
+Information about Passband:
+----------------------------
+Filter: COLIBRI i
+Cut_on: 6895 angstroms
+Effective wavelength: 7525 angstroms
+Cut_off: 8193 angstroms
+
+Information about Local conditions:
+----------------------------
+Site: OAN_Ratir_X1.5
+Seeing at zenith: 1.00
+Elevation: 41.90 degrees
+Airmass: 1.50
+Moon age: 7.00
+
+MEAN EFFICENCIES:
+------------------
+Obscuration: 0.80 
+Telescope: 0.54 (+obs: 0.43) 
+Instrument: 0.67 
+Optics (tel+inst): 0.36  (+obs: 0.29) 
+Filter: 0.85 
+Atmosphere: 0.93 
+Camera: 0.92 
+System: 0.36 (+obs: 0.29)
+
+Zeropoint: 23.82 (AB mag) 
+
+
+A magnitude (AB system) of 18.00 in i band within a total exposure time of 20.00 seconds splited in 1 exposure(s), implies a total SNR of :
+
+	 - Integrated SNR over 2 pixels: 49.92 
+
+
+A magnitude (AB system) of 18.00 in i band within a total exposure time of 20.00 seconds splited in 1 exposure(s), implies a SNR for the central pixel of of :
+
+	 - SNR of the central pixel: 43.79 
+
+
+Full well capacity of 1 pixel: 350000.00 (electrons)
+Inverse gain of 1.50 e/ADU and 16 bits implies a maximum number of electrons to be digitized of  98302.50 (electrons) 
+
+
+--------- One pixel only------------------
+
+Photo-electrons created: central pix for 1 exposure(s) of 20.00 sec 
+	by:
+	- Object:            2217.46   (electrons)
+	- Sky:                282.81   (electrons)
+	- Readout:              8.00   (electrons)
+	- Dark current:         0.02   (electrons)
+	- Digitization:         0.43   (electrons)
+
+SNR: -central pixel: 43.79
+
+Total of electrons collected in the central pixel during an exposure time of 20 seconds: 2508.73 
+--> No saturation
+
+
+
+--------- Integrated over 2 pixels------------------
+
+Photo-electrons created: brightest pix |  total of 2 pixels, 1 exposure(s) of 20.00 sec 
+	by:
+	- Object:            2217.46   |      3057.58   (electrons)
+	- Sky:                282.81   |       565.62   (electrons)
+	- Readout:              8.00   |        16.00   (electrons)
+	- Dark current:         0.02   |         0.04   (electrons)
+	- Digitization:         0.43   |         0.87   (electrons)
+
+SNR: -central pixel: 43.79
+     -integrated over 2 pixels: 49.92
+
+Total of electrons collected in the brightest pixel during an exposure time of 20 seconds: 2508.73 
+--> No saturation
+
+Dead time: 0.00 sec 
+(0.00 sec for dithering, the 6.00 sec for the readout are not taken into account)

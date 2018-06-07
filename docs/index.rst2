@@ -10,42 +10,29 @@ forthcoming Sino-French SVOM dedicated to the detection of Gamma-Ray Bursts.
 This ETC provides 
 
 
+User Documentation
+==================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   readme
+   installation
+   usage
+   modules
+   contributing
+   authors
+   history
+
 Installation
 ============
 
 .. toctree::
   :maxdepth: 2 
 
-  How to install <pyETC/installation.rst>
+  How to install <pyETC/install.rst>
 
-
-User Documentation
-==================
-
-.. toctree::
-   :maxdepth: 2
-
-   readme
-   usage
-
-
-Contributing
-============
-
-.. toctree::
-  :maxdepth: 2 
-
-  How to contribute <pyETC/contributing.rst>
-  Contributing authors <pyETC/authors.rst>
-
-
-History
-=======
-
-.. toctree::
-  :maxdepth: 2
-
-  History log  <pyETC/history.rst>
 
 Indices and tables
 ==================

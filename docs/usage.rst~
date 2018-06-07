@@ -60,7 +60,7 @@ If you just want the SNR, you can get it through:
 
 
 Compute the limiting magnitude for a given SNR and exposure time
-----------------------------------------------------------------
+-------------------------------------------------------
 
 We keep using COLIBRI telescope and this time we want to compute the limiting magnitude in the J band for a SNR of 10 and a single exposure of 30s. We need to use the NIR channel, which is named CAGIRE in the hjson file.
 

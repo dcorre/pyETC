@@ -1,0 +1,77 @@
+Information about Passband:
+----------------------------
+Cut_on: 5495 angstroms
+Effective wavelength: 6199 angstroms
+Cut_off: 6895 angstroms
+
+Airmass: 1.50
+
+Seeing: 1.22
+
+MEAN EFFICENCIES:
+------------------
+Obscuration: 0.801
+Telescope: 0.569 (+obs: 0.456)
+Instrument: 0.666
+Optics (tel+inst): 0.379  (+obs: 0.304)
+Filter: 0.850
+Atmosphere: 0.887
+Camera: 0.907
+System: 0.379 (+obs: 0.304)
+
+Zeropoint: 24.12 (AB mag)
+
+
+A magnitude (AB system) of 16.00 in r band within a total exposure time of 30.00 seconds splited in 1 exposure(s), implies a total SNR of :
+
+	 - Integrated SNR over 1 pixels: 194.17
+
+
+A magnitude (AB system) of 16.00 in r band within a total exposure time of 30.00 seconds splited in 1 exposure(s), implies a SNR for the central pixel of of :
+
+
+	 - SNR of the central pixel: 201.76 
+
+
+
+Full well capacity of 1 pixel: 350000.00 (electrons)
+Inverse gain of 1.50 e/ADU and 16 bits implies a maximum number of electrons to be digitized of  98302.50 (electrons)
+
+
+--------- One pixel only------------------
+
+Photo-electrons created: central pix for 1 exposure(s) of 30.00 sec 
+	by:
+	- Object:           41024.84   (electrons)
+	- Sky:                254.64   (electrons)
+	- Readout:              8.00   (electrons)
+	- Dark current:         0.03   (electrons)
+	- Digitization:         0.43   (electrons)
+	- Instrument bg:        0.00   (electrons)
+
+SNR: -central pixel: 201.76
+
+Total of electrons collected in the central pixel during an exposure time of 30 seconds: 41287.94 
+--> No saturation
+
+
+
+--------- Integrated over 1 pixels------------------
+
+Photo-electrons created: brightest pix |  total of 1 pixels, 1 exposure(s) of 30.00 sec 
+	by:
+	- Object:           41024.84   |     38018.20   (electrons)
+	- Sky:                254.64   |       254.64   (electrons)
+	- Readout:              8.00   |         8.00   (electrons)
+	- Dark current:         0.03   |         0.03   (electrons)
+	- Digitization:         0.43   |         0.43   (electrons)
+	- Instrument bg:        0.00   |         0.00   (electrons)
+
+SNR: -Brightest pixel: 201.76
+     -integrated over 1 pixels: 194.17
+
+Total of electrons collected in the brightest pixel during an exposure time of 30 seconds: 41287.94 
+--> No saturation
+
+Dead time: 0.00 sec 
+(0.00 sec for dithering, the 6.00 sec for the readout are not taken into account)
