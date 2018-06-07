@@ -19,7 +19,7 @@
 "lambda_step": 0.001
 
 #What quantity to compute: 'time', 'mag', 'snr'
-"etc_type": mag
+"etc_type": snr
 
 #If etc_type='time' or 'SNR', set the object type ('magnitude','spectrum','grb_sim')
 "object_type": magnitude
@@ -30,7 +30,7 @@
 "object_file": bohlin2006_Vega.dat
 
 #Used if etc_type='time' or 'snr' and object_type='magnitude'
-"object_magnitude": 16
+"object_magnitude": 12.8
 #Used if etc_type='time' or 'mag'
 "SNR": 5
 
@@ -42,7 +42,7 @@
 
 #-------- LOCAL CONDITIONS  ---------------------#
 #Seeing in arcsec at 500nm and for an airmass 1 
-"seeing_zenith": 0.7
+"seeing_zenith": 1
 
 #elevation in degrees
 "elevation": 41.9
@@ -67,11 +67,11 @@
 
 
 #-------- FILTER -----------------------------#
-"filter_band": r
+"filter_band": H
 
 #-------- CAMERA --------------------------------#
 #either 'NIR' or 'VIS1' or 'VIS2' 
-"channel": VIS1
+"channel": NIR
 
 #Binning
 "binning_X": 1

@@ -52,10 +52,7 @@ class etc():
            self.information['plot'] = True
        else:
            self.information['plot'] = False
-       if self.information['display'].lower() == 'true':
-           self.information['display'] = True
-       else:
-           self.information['display'] = False
+
 
        # Add information to dictionary 
        self.information['MainDirectory']=path

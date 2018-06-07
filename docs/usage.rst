@@ -86,7 +86,33 @@ Add new Telescope
 =================
 
 The telescopes are stored in pyETC/telescope_database/ in a hjson format.   
-An example is seen below: 
+This file contains all caracteristics of the telescope and its environment you do not need to modify for different observations. (Size of the mirrors, number ad type of lenses, mirrors..., sky background, atmosphere transmission, cameras caracteristics,...).
+
+An example is seen below with the *default.hjson*. The hjson file is composed of 4 parts: the local conditions, main telescope characteristics, optical design and cameras characteristics.
+
+Local conditions
+----------------
+
+This part contains information related to the observational site: sky brightness and atmosphere transmission. 
+The sky brigthness is loaded from a file stored in *pyETC/local_conditions/sky_brightness/*, where the magnitude per arcsec^2 is given for different filter bands and at different moon age. A moon age of 0 and 14 correspond to a new moon and a full moon respectively. For instance the file corresponding to the sky brightness at the Observatorio Astronomico Nacional is:
+
+.. literalinclude:: ./files/OAN.dat
+
+
+The atmospheric transmission can be either loaded from a file or computed if extinction data are available. In the example below, it is loaded from the file OAN_atm_trans located in *pyETC/local_conditions/atmosphere/*.
+
+
+Telescope
+---------
+
+
+
+Optical design
+--------------
+
+
+Cameras
+-------
 
 .. literalinclude:: ./files/default.hjson
 

@@ -7,10 +7,8 @@
 "verbose": True
 
 #Make overview plot for ETC results
-"etc_plot": True
+"plot": True
 
-#Display Plot
-"disp": True
 
 # Set the wavelength range
 # In microns

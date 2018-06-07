@@ -149,12 +149,12 @@ class etc():
        """ Plot transmisions curves """
 
        import matplotlib.pyplot as plt
-
+       plt.figure()
        if passband_centered:
            xlim=np.array([self.information['Passband_cuton']*0.8,self.information['Passband_cutoff']*1.2])
        else: 
            xlim=np.array([self.information['wavelength_ang'][0]*0.95,self.information['wavelength_ang'][-1]*1.05])
-
+       
        if wvl_unit == 'microns': 
            x=self.information['wavelength_ang']*1e-4
            xlim*=1e-4

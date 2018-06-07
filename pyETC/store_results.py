@@ -82,5 +82,4 @@ def result_plot(info_dict,wavelength,fph,obj_mag):
     plt.tick_params(labelsize=16)
     plt.tight_layout()
     plt.savefig(info_dict['MainDirectory']+'/results/plot.png') #% (dir_python,plotname))
-    if info_dict['display'] == True: plt.show()
-
+    

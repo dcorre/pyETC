@@ -35,7 +35,7 @@
 "SNR": 5
 
 #exposure time in seconds
-"exptime": 30
+"exptime": 5
 #Number of expositions
 "Nexp": 1
 

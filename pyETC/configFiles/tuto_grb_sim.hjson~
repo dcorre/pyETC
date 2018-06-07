@@ -10,7 +10,7 @@
 "plot": False
 
 #Display Plot
-"disp": False
+"display": False
 
 # Set the wavelength range
 # In microns

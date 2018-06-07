@@ -9,8 +9,6 @@
 #Make overview plot for ETC results
 "plot": False
 
-#Display Plot
-"display": False
 
 # Set the wavelength range
 # In microns

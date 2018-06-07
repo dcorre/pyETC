@@ -35,22 +35,24 @@
 # FWHM of the optics in arcsec, same for each band 
 "Fwhm_psf_opt": 0.4
 
-#-------- FILTER -----------------------------#
-# Detailed modelisation of the telescope and instrument
-# If detailed is 1 then the number of mirrors, lenses, dichroics must be defined as well as
-# the camera efficiency, the filer curves
-# If detailed == 1: have to define the numbers of mirrors, lenses and dichroics in optics.py
-# If detailed == 0: will load a throughput curve
+#-------- OPTICAL DESIGN  -----------------------------#
+# Modelisation of the telescope and instrument. There are 2 options:
+
+# If detailed == 1: number of mirrors, lenses, dichroics must be defined as 
+# well as the the filer transmission curves and camera quantum efficiency
+# If detailed == 0: will load a global throughput curve
 
 "detailed_trans": 1
 
-# If detailed simulations (detailed ==1). Has to be in pyETC/transmissions/filters
-# It corresponds to the transmission of the filter only
+# The following is required only if detailed == 1.
 
-"filter_folder": Default
+# Folder containing the filters transmission of the telescope. 
+# Has to be in pyETC/transmissions/filters
 
-#-------- OPTICAL DESIGN ------------------------#
-# Set up the optical element in the telescope and each intrument channel.
+"filter_folder": default
+
+# Set up the type and number of optical elements in the telescope and each
+# intrument channel.
 # Note that the keywords used for defining the instrument channels are free
 # to chose (here: VIS1, VIS2). However they must be the same as for the camera 
 # properties below.
@@ -86,7 +88,7 @@
 }
 
 #-------- CAMERAS --------------------------------#
-# Caracteristics of cameras used for the different channels.
+# Characteristics of cameras for the different channels.
 # The keywords VIS1 and VIS2 defining the instrument channels must be the same 
 # as the ones used for the optical design.
 

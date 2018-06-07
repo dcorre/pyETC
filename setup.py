@@ -11,7 +11,8 @@ with open('README.rst') as readme_file:
 with open('docs/pyETC/history.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=6.0', ]
+requirements = ['Click>=6.0', 'numpy', 'matplotlib', 'scipy', 'astropy',
+                'jupyter', 'scikit-image', 'hjson']
 
 setup_requirements = ['pytest-runner', ]
 

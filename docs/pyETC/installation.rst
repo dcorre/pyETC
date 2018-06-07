@@ -5,22 +5,23 @@ Installation
 ============
 
 
-Stable release
---------------
+#Stable release
+#--------------
 
-To install pyETC, run this command in your terminal:
 
-.. code-block:: console
+#To install pyETC, run this command in your terminal:
 
-    $ pip install pyETC
+#.. code-block:: console
 
-This is the preferred method to install pyETC, as it will always install the most recent stable release.
+#    $ pip install pyETC
 
-If you don't have `pip`_ installed, this `Python installation guide`_ can guide
+#This is the preferred method to install pyETC, as it will always install the most recent stable release.
+
+#If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
 
-.. _pip: https://pip.pypa.io
-.. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/
+#.. _pip: https://pip.pypa.io
+#.. _Python installation guide: http://docs.python-guide.org/en/latest/starting/installation/
 
 
 From sources
@@ -45,6 +46,15 @@ Once you have a copy of the source, you can install it with:
 .. code-block:: console
 
     $ python setup.py install
+
+
+If you want a developper version, meaning that you can modify the script
+and these changes are automatically taken into account without having 
+to install ``pyETC`` after each change, you can install it with:
+
+.. code-block:: console
+
+    $ python setup.py develop
 
 
 .. _Github repo: https://github.com/dcorre/pyETC

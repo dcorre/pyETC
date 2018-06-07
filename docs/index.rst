@@ -7,7 +7,7 @@ optical/NIR telescope.
 It was initially developped for COLIBRI, a ground follow-up telescope of the 
 forthcoming Sino-French SVOM dedicated to the detection of Gamma-Ray Bursts.
 
-This ETC provides 
+This ETC is so far only used for photometry. One of the feature of this ETC is that it takes into account the wavelenght transmission, reflectance of the optical elements. It is thus an interesting tool to assess the performance of a telescope for a given optical design. 
 
 
 Installation

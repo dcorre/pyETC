@@ -9,9 +9,6 @@
 #Make overview plot for ETC results
 "plot": True
 
-#Display Plot
-"display": True
-
 # Set the wavelength range
 # In microns
 "lambda_start": 0.2
