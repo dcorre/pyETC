@@ -1,0 +1,12 @@
+# instrument background emission in function of night temperature (e-/s/photocells)
+# Computed by Alan Watson
+Temp,J,H
+-16,0.017,0.58
+-15,0.019,0.66
+-10,0.035,1.2
+-5,0.065,2.3
+0,0.12,4.0
+5,0.2,7.2
+10,0.35,12.2
+15,0.59,20.5
+20,0.97,34.0

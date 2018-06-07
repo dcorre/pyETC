@@ -1,0 +1,13 @@
+# Sky brightness at the San Pedro Martyr site
+# Taken from Alan 'estimated GFT performance' document
+# effective wavelength of the flter in angstrom
+# Band eff_wvl 0 14
+g 4825 21.9 19.2
+r 6195 21.1 19.6
+i 7545 19.9 18.7
+z 8700 19.0 18.3
+Z 8775 19.0 18.3
+y 9595 18.0 18.0
+Y 10200 18.0 18.0
+J 12500 16.28 16.28
+H 16350 15.06 15.06

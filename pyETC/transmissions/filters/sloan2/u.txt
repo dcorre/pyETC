@@ -1,0 +1,7 @@
+# Values from astrodon website (we took minimum values guaranteed)
+# http://www.astrodon.com/sloan.html
+# wavelength(nm)    transmittance
+310.0 0.0
+320.0 90.0
+385.0 90.0
+395.0 0.0

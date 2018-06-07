@@ -1,0 +1,21 @@
+# Andor ikon-XL e2v 231-84 - Deep depletion silicon - dual AR coating
+# blue + NIR - deep depletion with fringe suppression
+# QE at -100C 
+# http://www.andor.com/scientific-cameras/ikon-xl-and-ikon-large-ccd-series/ikon-xl-231
+# Angstrom QE
+2800.0 0.0
+3000.0 0.9
+3600.0 0.9
+3800.0 0.9
+4100.0 0.9
+4400.0 0.9
+5300.0 0.9
+6500.0 0.9
+7000.0 0.9
+7300.0 0.9
+8000.0 0.9
+8500.0 0.9
+10000.0 0.9
+10500.0 0.9
+11000.0 0.9
+11200.0 0.0

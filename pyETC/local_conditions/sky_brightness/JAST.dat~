@@ -1,0 +1,7 @@
+# Sky brightness for JAST
+# JAST/T80 data : http://www.cefca.es/jplusetc/etc_help.html
+# Band eff_wvl 0 7 14
+B 4400 22.79 21.19 20.06
+V 5500 22.17 21.38 20.67
+R 6400 21.56 20.89 20.49
+I 7900 19.95 19.39 19.13

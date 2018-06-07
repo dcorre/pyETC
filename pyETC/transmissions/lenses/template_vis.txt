@@ -1,0 +1,8 @@
+# External transmission of a N-BK7 lense
+# https://marketplace.idexop.com/store/SupportDocuments/MaterialProperties.pdf
+# (page 12) thickness = 10mm no coating
+# angstrom Transmission
+2000.0 0.0
+2100.0 0.98
+29000.0 0.98
+30000.0 0.0

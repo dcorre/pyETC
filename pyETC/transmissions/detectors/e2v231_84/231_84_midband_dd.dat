@@ -1,0 +1,15 @@
+# Quantum efficiency of ccd231-84 Backilluminated Scientific at -100C - Deep depletion silicon
+# http://www.e2v.com/resources/account/download-datasheet/1364 
+# Angstrom QE
+2200.0 0.0
+3000.0 0.26
+3600.0 0.34
+4000.0 0.6
+5000.0 0.89
+5500.0 0.92
+6000.0 0.92
+7000.0 0.89
+8000.0 0.8
+8500.0 0.7
+10000.0 0.12
+10700.0 0.0

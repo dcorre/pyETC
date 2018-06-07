@@ -1,0 +1,84 @@
+#-------- LOCAL CONDITIONS  ---------------------#
+# File containing sky brightness should be in pyETC/local_conditions/sky_brightness/
+"sky_site": SPM_Ratir_X1.5
+# Wheter the atmospheric transmission is loaded from a file or computed using the extinction: "file" / "data"
+"atmosphere_type": file
+# Name of the file for extinction. In pyETC/local_conditions/atmosphere/
+"ext_file": SPM_extinction
+# Name of the file for atmospheric transmission. In pyETC/local_conditions/atmosphere/
+"atm_file": SPM_atm_trans
+
+#-------- TELESCOPE -----------------------------#
+#M1 diameter (in m)
+"D_M1": 0.250
+#M2 diameter (in m)
+"D_M2": 0.1438
+#Factor to take into account additional obscuration such as the spider arms. Simply multiply D_M2 with this factor
+"M2_factor": 1.0
+#Focal length (meters)
+"focal_length": 0.853
+
+#FWHM of the optics in arcsec, different for each band 
+"Fwhm_psf_opt": 2
+
+#-------- FILTER -----------------------------#
+#Detailed modelisation of the telescope and instrument
+#If detailed is 1 then the number of mirrors, lenses, dichroics must be defined as well as
+# the camera efficiency, the filer curves
+#If detailed == 1: have to define the numbers of mirrors, lenses and dichroics in optics.py
+#If detailed == 0: will load a throughput curve
+"detailed_trans":1
+#If detailed simulations (detailed ==1). Has to be in pyETC/transmissions/filters
+#It corresponds to the transmission of the filter only
+"filter_folder": tarot
+
+#-------- optical design ------------------------#
+# Set up the optical element in the telescope and each intrument channel.
+# Note that the keywords used for defining the instrument channels are free to chosei (here: VIS1, VIS2 and NIR). However they must be reused for the cameras properties below.
+# 'telescope' contains all optical elements common for all channels
+# For each type of element (i.e 'mirrors', 'lenses'...) must correspond  a folder in gft_etc/transmissions/
+# These folders contain files in which the transmission are given. For instance here we have one lense N-BaK4 and the file must be  gft_etc/transmissions/lenses/N-BaK4.txt
+# You can add your own files and folders.
+"optical_design": {
+    "telescope": {
+        "mirrors": {"Al_OHP_unam": 2}
+        "coating": {"template_tel": 4}
+        }
+    "VIS1": {
+        "lenses": {"N-BaK4": 2}
+        "coating": {"template_vis": 6}
+        "windows": {"template_vis": 1}
+        }
+}
+
+#-------- CAMERA --------------------------------#
+# Caracteristics of cameras used for the different channels.
+# The keywords VIS1,VIS2,NIR defining the instrument channels must be the same as the ones used for the optical design
+"cameras":{
+    "VIS1": {
+        # Folder should be in gft_etc/transmissions/detectors/
+        "camera_type": andor_ikon_L
+        # File should be in gft_etc/transmissions/detectors/'camera_type'/
+        "sensor": DW436_BV
+        # Number of photocells on X axis
+        "Nphotocell_X": 2048
+        # Number of photocells on Y axis
+        "Nphotocell_Y": 2048
+        # Size of 1 photocell on X axis (in meters)
+        "Photocell_SizeX": 13.5e-6 
+        # Size of 1 photocell on Y axis (in meters)
+        "Photocell_SizeY": 13.5e-6 
+        # Time required to read all the photocells (in s)
+        "ReadoutTime": 1
+        # Full well capacity of one photocell (in e-)
+        "FWC": 100000
+        # Readout Noise (in e-/photocell)
+        "RN": 7.81
+        # Dark current for one photocell (in e-/photocell/s)
+        "DC": 0.0509
+        # e- to ADU conversion factor
+        "gain": 2.56
+        # Number of bits for the camera
+        "bits": 16}
+}
+

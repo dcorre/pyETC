@@ -1,0 +1,6 @@
+# Values from http://arxiv.org/pdf/1003.3465v1.pdf
+# wavelength(nm)    transmittance
+549.0 0.0
+550.0 95.0
+689.0 95.0
+690.0 0.0

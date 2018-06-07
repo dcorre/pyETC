@@ -1,0 +1,6 @@
+# Reflectance of window
+# angstrom Reflectance
+2000.0 0.0
+2100.0 0.98
+30000.0 0.98
+30100.0 0.0

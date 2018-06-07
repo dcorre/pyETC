@@ -1,0 +1,17 @@
+# extinction in mag/airmass for given wavelengths at San Pedro de Martir
+# Taken from http://www.astrosmo.unam.mx/rmaa/RMxAA..37-2/PDF/RMxAA..37-2_schuster.pdf
+# Filter information taken from http://adsabs.harvard.edu/full/1981RMxAA...6..159C
+# Wvl extinction
+3371 0.641
+3536 0.518
+3751 0.417
+4030 0.314
+4571 0.207
+5183 0.152
+5827 0.137
+6356 0.100
+7241 0.076
+8000 0.059
+8584 0.049
+9831 0.055
+11084 0.047

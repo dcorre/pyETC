@@ -1,0 +1,154 @@
+#-------- LOCAL CONDITIONS  ---------------------#
+# File containing sky brightness should be in gft_etc/local_conditions/sky_brightness/
+"sky_site": SPM_Ratir_X1.5
+# Temperature of the night in Celsius, to calculate the instrument background emission
+# File has to be provided in gft_etc/local_conditions/instrument_background/ with the name of the telescope
+"Inst_bkg_temp": none
+# Wheter the atmospheric transmission is loaded from a file or computed using the extinction: file / data
+"atmosphere_type": file
+# Name of the file for extinction. In gft_etc/local_conditions/atmosphere/
+"ext_file": SPM_extinction
+# Name of the file for atmospheric transmission. In gft_etc/local_conditions/atmosphere/
+"atm_file": SPM_atm_trans
+
+#-------- TELESCOPE -----------------------------#
+#M1 diameter (in m)
+"D_M1": 8.2
+#M2 diameter (in m)
+"D_M2": 0.94
+#Factor to take into account additional obscuration such as the spider arms. Simply multiply D_M2 with this factor
+"M2_factor": 1.0
+#focal_length (in meters)
+"focal_length": {
+              "VIS1": 25
+              "VIS2": 15
+              "NIR": 15
+             }
+
+#FWHM of the optics in arcsec, different for each band 
+"Fwhm_psf_opt":{"g": 0.26,"r": 0.26,"i": 0.37,"z": 0.37,"y": 0.37,"J": 0.59,"H": 0.73,"gri": 0.3,"zy": 0.37, "V": 0.26, "R":0.37}
+
+#-------- FILTER -----------------------------#
+#Detailed modelisation of the telescope and instrument
+#If detailed is 1 then the number of mirrors, lenses, dichroics must be defined as well as
+# the camera efficiency, the filer curves
+#If detailed == 1: have to define the numbers of mirrors, lenses and dichroics in optics.py
+#If detailed == 0: will load a throughput curve
+"detailed_trans": 1
+#If detailed simulations (detailed ==1). Has to be in /gft_etc/transmissions/filters
+#It corresponds to the transmission of the filter only
+"filter_folder": gft
+
+#-------- optical design ------------------------#
+# Set up the optical element in the telescope and each intrument channel.
+# Note that the keywords used for defining the instrument channels are free to chosei (here: VIS1, VIS2 and NIR). However they must be reused for the cameras properties below.
+# 'telescope' contains all optical elements common for all channels
+# For each type of element (i.e 'mirrors', 'lenses'...) must correspond  a folder in gft_etc/transmissions/
+# These folders contain files in which the transmission are given. For instance here we have one lense N-BaK4 and the file must be  gft_etc/transmissions/lenses/N-BaK4.txt
+# You can add your own files and folders.
+"optical_design": {
+    "telescope": {
+        "mirrors": {"Al_OHP_unam": 3}
+        "lenses": {"N-BaK4": 1}
+        "coating": {"template_tel": 4}
+        "dichroics": {"template_tel": 1}
+        }
+    "VIS1": {
+        "coating": {"template_vis": 2}
+        "dichroics": {"template_vis": 1}
+        "windows": {"template_vis": 1}
+        }
+    "VIS2": {
+        "lenses": {"internal_trans_tot": 1}
+        "coating": {"template_vis": 2}
+        "dichroics": {"template_vis": 1}
+        "windows": {"template_vis": 1}
+        }
+    "NIR": {
+        "mirrors": {"Au": 2}
+        "lenses": {"S-FTM16": 1}
+        "coating": {"template_ir": 18}
+        }
+}
+
+#-------- CAMERA --------------------------------#
+# Caracteristics of cameras used for the different channels.
+# The keywords VIS1,VIS2,NIR defining the instrument channels must be the same as the ones used for the optical design
+"cameras":{
+    "VIS1": {
+        # Folder should be in gft_etc/transmissions/detectors/
+        "camera_type": e2v231_84
+        # File should be in gft_etc/transmissions/detectors/'camera_type'/
+        "sensor": dd_SI_100C
+        # Number of photocells on X axis
+        "Nphotocell_X": 4096
+        # Number of photocells on Y axis
+        "Nphotocell_Y": 4096
+        # Size of 1 photocell on X axis (in meters)
+        "Photocell_SizeX": 15e-6 
+        # Size of 1 photocell on Y axis (in meters)
+        "Photocell_SizeY": 15e-6 
+        # Time required to read all the photocells (in s)
+        "ReadoutTime": 6
+        # Full well capacity of one photocell (in e-)
+        "FWC": 350000
+        # Readout Noise (in e-/photocell)
+        "RN": 8.0
+        # Dark current for one photocell (in e-/photocell/s)
+        "DC": 0.001
+        # e- to ADU conversion factor
+        "gain": 1.5
+        # Number of bits for the camera
+        "bits": 16}
+    "VIS2": {
+        # Folder should be in gft_etc/transmissions/detectors/
+        "camera_type": e2v231_84
+        # File should be in gft_etc/transmissions/detectors/'camera_type'/
+        "sensor": dd_SI_100C
+        # Number of photocells on X axis
+        "Nphotocell_X": 4096
+        # Number of photocells on Y axis
+        "Nphotocell_Y": 4096
+        # Size of 1 photocell on X axis (in meters)
+        "Photocell_SizeX": 15e-6            
+        # Size of 1 photocell on Y axis (in meters)
+        "Photocell_SizeY": 15e-6            
+        # Time required to read all the photocells (in s)
+        "ReadoutTime": 6
+        # Full well capacity of one photocell (in e-)
+        "FWC": 350000
+        # Readout Noise (in e-/photocell)
+        "RN": 8.0
+        # Dark current for one photocell (in e-/photocell/s)
+        "DC": 0.001
+        # e- to ADU conversion factor
+        "gain": 1.5
+        # Number of bits for the camera
+        "bits": 16}
+    "NIR": {
+        # Folder should be in gft_etc/transmissions/detectors/
+        "camera_type": teledyne
+        # File should be in gft_etc/transmissions/detectors/'camera_type'/
+        "sensor": teledyne_80
+        # Number of photocells on X axis
+        "Nphotocell_X": 2048
+        # Number of photocells on Y axis
+        "Nphotocell_Y": 2048
+        # Size of 1 photocell on X axis (in meters)
+        "Photocell_SizeX": 18e-6            
+        # Size of 1 photocell on Y axis (in meters)
+        "Photocell_SizeY": 18e-6            
+        # Time required to read all the photocells (in s)
+        "ReadoutTime": 1.4
+        # Full well capacity of one photocell (in e-)
+        "FWC": 80000
+        # Readout Noise (in e-/photocell)
+        "RN": 20.0
+        # Dark current for one photocell (in e-/photocell/s)
+        "DC": 0.0027
+        # e- to ADU conversion factor
+        "gain": 1.3
+        # Number of bits for the camera
+        "bits": 16}
+}
+

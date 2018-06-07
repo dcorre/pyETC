@@ -1,0 +1,14 @@
+# Andor ikon-XL e2v 230-84 - Standard silicon - broad band AR coating
+# QE at -25C 
+# http://www.andor.com/scientific-cameras/ikon-xl-and-ikon-large-ccd-series/ikon-xl-230
+# Angstrom QE
+2200.0 0.0
+3000.0 0.16
+4000.0 0.8
+4900.0 0.88
+6200.0 0.8
+7200.0 0.7
+7900.0 0.6
+9800.0 0.1
+11000.0 0.0
+

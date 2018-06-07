@@ -1,0 +1,5 @@
+# wavelength(nm)    transmittance
+413.0 0.0
+414.0 95.0
+551.0 95.0
+552.0 0.0

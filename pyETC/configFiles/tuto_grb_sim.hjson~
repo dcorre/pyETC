@@ -1,0 +1,124 @@
+{
+
+########### EXPOSURE TIME CALCULATOR #####################
+
+#-------- CALCULATION CONFIGURATION ----------------------------#
+#Verbose
+"verbose": False
+
+#Make overview plot for ETC results
+"plot": False
+
+#Display Plot
+"disp": False
+
+# Set the wavelength range
+# In microns
+"lambda_start": 0.2
+"lambda_end": 3
+"lambda_step": 0.001
+
+#What quantity to compute: 'time', 'mag', 'snr'
+"etc_type": snr
+
+#If etc_type='time' or 'SNR', set the object type ('magnitude','spectrum','grb_sim')
+"object_type": grb_sim
+
+#Used if object_type='spectrum' you have to specifiy directory and name of the file
+#Reads a file with 2 columns: wavelength (in angstrom) / Flux in erg/cm2/s/A
+"object_folder": /data/calspec/
+"object_file": bohlin2006_Vega.dat
+
+#Used if etc_type='time' or 'snr' and object_type='magnitude'
+"object_magnitude": 16
+#Used if etc_type='time' or 'mag'
+"SNR": 5
+
+#exposure time in seconds
+"exptime": 30
+#Number of expositions
+"Nexp": 1
+
+
+#-------- LOCAL CONDITIONS  ---------------------#
+#Seeing in arcsec at 500nm and for an airmass 1 
+"seeing_zenith": 0.7
+
+#elevation in degrees
+"elevation": 41.9
+
+#moon age: 0: new moon  / 14: full moon
+"moon_age": 7.0
+
+#Night temperature in °C (to calculate instrument background)
+"Temp_night": 5
+
+#-------- TELESCOPE -----------------------------#
+
+#PSF profile ('gaussian' or 'moffat')
+"psf_type": gaussian
+"moffat_beta": 3.0 
+
+#FWHM_type: (see function FWHM() in preliminary_computations.py for more details)
+# - seeing: seeing + optics
+# - prf: seeing + optics + prf
+"fwhm_type": seeing
+
+
+
+#-------- FILTER -----------------------------#
+"filter_band": r
+
+#-------- CAMERA --------------------------------#
+# The channel name should be the same as the ones defined in the telescope config hjson file.
+"channel": DDRAGO-B
+
+#Binning
+"binning_X": 1
+"binning_Y": 1
+
+#-------- PHOTOMETRY ----------------------------#
+
+#Photometric system ('AB' or vega')
+"photometry_system": AB
+
+# radius used for the aperture photometry (fwhm fraction)
+"radius_int_fwhm": 0.675
+
+#PSF position on the central pixel: nogrid / center / corner
+"PSF_position_on_ccd": nogrid
+
+
+
+#------------- GRB parameters -------------
+#If "object_type": grb_sim
+"grb_model": gs02
+#Model from Granot et Sari 2002
+"grb_redshift": 3
+#In days
+"t_sinceBurst": 0.1
+"n0": 1.0
+"eps_b": 0.0001
+"eps_e": 0.1
+"E_iso": 1e53
+"eta": 0.15
+"p": 2.2
+"Y": 0
+"ism_type": 0
+
+
+#-------- Host galaxy extinction ------------------#
+# either 'mw', 'smc','lmc' or 'none'
+"host_extinction_law": smc
+"Av_Host": 0.2
+
+#-------- IGM extinction model------------------#
+# either 'madau' or 'meiksin' or 'none'
+"IGM_extinction_model": meiksin
+
+#-------- Galactic extinction ------------------#
+# either 'mw', 'smc','lmc' or 'none'
+"galactic_extinction_law": mw
+"Av_galactic": 0.1
+
+} 
