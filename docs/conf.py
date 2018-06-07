@@ -21,7 +21,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
-import matplotlib.sphinxext.plot_directive
+#import matplotlib.sphinxext.plot_directive
 
 import pyETC
 
@@ -44,7 +44,7 @@ extensions = [
     #'sphinx.ext.linkcode',
     'numpydoc',
     'sphinxcontrib.programoutput',
-    matplotlib.sphinxext.plot_directive.__name__
+    #matplotlib.sphinxext.plot_directive.__name__
 ]
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
