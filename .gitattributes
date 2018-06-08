@@ -1,4 +1,4 @@
-#*.ipynb linguist-documentation
-*.ipynb linguist-vendored
+*.ipynb linguist-documentation
+#*.ipynb linguist-vendored
 
 
