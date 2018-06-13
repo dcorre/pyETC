@@ -71,9 +71,9 @@ def set_object(info_dict):
 
          if info_dict['grb_model'] == 'gs02':
              try:
-                 from grb_afterglow_sim.spectrum import fireball_afterglow as grb
+                 from pyGRBaglow.synchrotron_model import fireball_afterglow as grb
              except ValueError:
-                 print ('Package grb_afterglow not found. Need to be installed')
+                 print ('Package pyGRBaglow not found. Need to be installed')
 
              td=info_dict['t_sinceBurst'] # in days
              DIT = info_dict['exptime']   # in second
@@ -91,7 +91,7 @@ def set_object(info_dict):
          elif info_dict['grb_model']== 'SPL': 
 
              try:
-                 from grb_afterglow_sim.spectrum import Templates as grb
+                 from pyGRBaglow.template_models import Templates as grb
              except ValueError:
                  print ('Package grb_afterglow not found. Need to be installed')
 
@@ -109,7 +109,7 @@ def set_object(info_dict):
          elif info_dict['grb_model']== 'BPL': 
 
              try:
-                 from grb_afterglow_sim.spectrum import Templates as grb
+                 from pyGRBaglow.template_models import Templates as grb
              except ValueError:
                  print ('Package grb_afterglow not found. Need to be installed')
 
@@ -144,8 +144,8 @@ def set_object(info_dict):
 
          #Apply Host galaxy and IGM extinction
          try:
-             from los_extinction.igm import meiksin,madau
-             from los_extinction.reddening import reddening
+             from pyGRBaglow.igm import meiksin,madau
+             from pyGRBaglow.reddening import reddening
          except ValueError:
              print ('Package los_extinction not found. Need to be installed')
 
