@@ -11,10 +11,11 @@ with open('README.rst') as readme_file:
 with open('docs/pyETC/history.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=6.0', 'numpy', 'matplotlib', 'scipy', 'astropy',
+# Cython is required by scikit-image
+requirements = ['Click>=6.0', 'cython', 'matplotlib', 'scipy', 'astropy',
                 'jupyter', 'scikit-image', 'hjson']
 
-setup_requirements = ['pytest-runner', ]
+setup_requirements = ['pytest-runner', 'numpy']
 
 test_requirements = ['pytest', ]
 

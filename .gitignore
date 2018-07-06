@@ -111,3 +111,6 @@ ENV/
 
 # Exclude backup files 
 *.bk
+
+# Exclude results files
+pyETC/results/
