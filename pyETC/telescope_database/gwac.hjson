@@ -1,28 +1,25 @@
 #-------- LOCAL CONDITIONS  ---------------------#
 # File containing sky brightness should be in pyETC/local_conditions/sky_brightness/
-"sky_site": VT
+"sky_site": OAN_Ratir_X1.5
 # Wheter the atmospheric transmission is loaded from a file or computed using the extinction: "file" / "data"
 "atmosphere_type": file
-# Name of the file for extinction. In pyETC/local_conditions/atmosphere/
-"ext_file": Space
 # Name of the file for atmospheric transmission. In pyETC/local_conditions/atmosphere/
-"atm_file": Space
+"atm_file": OAN_atm_trans
 
 #-------- TELESCOPE -----------------------------#
 #M1 diameter (in m)
-"D_M1": 0.40
+"D_M1": 0.18
 #M2 diameter (in m)
-"D_M2": 0.1
+"D_M2": 0.0
 #Factor to take into account additional obscuration such as the spider arms. Simply multiply D_M2 with this factor
 "M2_factor": 1.0
 #focal_length (in meters)
 "focal_length": {
-              "VIS-B": 3.6
-              "VIS-R": 3.6
+              "VIS": 3.6
              }
 
 #FWHM of the optics in arcsec, different for each band 
-"Fwhm_psf_opt":1.33
+"Fwhm_psf_opt": 1
 
 #-------- FILTER -----------------------------#
 #Detailed modelisation of the telescope and instrument
@@ -33,58 +30,34 @@
 "detailed_trans": 0
 #If detailed simulations (detailed ==1). Has to be in pyETC/transmissions/filters
 #It corresponds to the transmission of the filter only
-"filter_folder": VT
+"filter_folder": gwac
 
 
 
 #-------- CAMERA --------------------------------#
 # Caracteristics of cameras used for the different channels.
-# The keywords VIS-B, VIS-R defining the instrument channels must be the same as the ones used for the optical design
+# The keyword VIS defining the instrument channels must be the same as the ones used for the optical design
 "cameras":{
-    "VIS-B": {
+    "VIS": {
         # Folder should be in pyETC/transmissions/detectors/
-        "camera_type": e2v4280
+        "camera_type": e2v203-82
         # File should be in pyETC/transmissions/detectors/'camera_type'/
-        "sensor": VT
+        "sensor": ER1
         # Number of photocells on X axis
-        "Nphotocell_X": 2048
+        "Nphotocell_X": 4096
         # Number of photocells on Y axis
-        "Nphotocell_Y": 2048
+        "Nphotocell_Y": 4096
         # Size of 1 photocell on X axis (in meters)
-        "Photocell_SizeX": 13.5e-6 
+        "Photocell_SizeX": 12e-6 
         # Size of 1 photocell on Y axis (in meters)
-        "Photocell_SizeY": 13.5e-6 
+        "Photocell_SizeY": 12e-6 
         # Time required to read all the photocells (in s)
-        "ReadoutTime": 6
+        # Computed with a readout frequency of 3MhZ (4096x4096/1e6)
+        "ReadoutTime": 5.6
         # Full well capacity of one photocell (in e-)
-        "FWC": 100000
-        # Readout Noise (in e-/photocell)
-        "RN": 6.0
-        # Dark current for one photocell (in e-/photocell/s)
-        "DC": 0.1
-        # e- to ADU conversion factor
-        "gain": 1.2
-        # Number of bits for the camera
-        "bits": 16}
-    "VIS-R": {
-        # Folder should be in pyETC/transmissions/detectors/
-        "camera_type": e2v4280
-        # File should be in pyETC/transmissions/detectors/'camera_type'/
-        "sensor": VT
-        # Number of photocells on X axis
-        "Nphotocell_X": 2048
-        # Number of photocells on Y axis
-        "Nphotocell_Y": 2048
-        # Size of 1 photocell on X axis (in meters)
-        "Photocell_SizeX": 13.5e-6 
-        # Size of 1 photocell on Y axis (in meters)
-        "Photocell_SizeY": 13.5e-6 
-        # Time required to read all the photocells (in s)
-        "ReadoutTime": 6
-        # Full well capacity of one photocell (in e-)
-        "FWC": 100000
-        # Readout Noise (in e-/photocell)
-        "RN": 6.0
+        "FWC": 175000
+        # Readout Noise (in e-/photocell), for readout frequency of 1Mhz
+        "RN": 12
         # Dark current for one photocell (in e-/photocell/s)
         "DC": 0.1
         # e- to ADU conversion factor

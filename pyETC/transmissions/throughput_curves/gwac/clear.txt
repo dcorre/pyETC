@@ -1,0 +1,7 @@
+# Data from VT telescope onboard SVOM
+# Angstrom QE
+3000.0 0.0
+3100.0 0.7
+9900.0 0.7
+10000.0 0.0
+
