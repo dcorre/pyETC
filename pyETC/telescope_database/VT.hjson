@@ -12,7 +12,7 @@
 #M1 diameter (in m)
 "D_M1": 0.40
 #M2 diameter (in m)
-"D_M2": 0.1
+"D_M2": 0.2
 #Factor to take into account additional obscuration such as the spider arms. Simply multiply D_M2 with this factor
 "M2_factor": 1.0
 #focal_length (in meters)
@@ -22,7 +22,7 @@
              }
 
 #FWHM of the optics in arcsec, different for each band 
-"Fwhm_psf_opt":1.33
+"Fwhm_psf_opt": 1.33
 
 #-------- FILTER -----------------------------#
 #Detailed modelisation of the telescope and instrument
@@ -61,7 +61,7 @@
         # Readout Noise (in e-/photocell)
         "RN": 6.0
         # Dark current for one photocell (in e-/photocell/s)
-        "DC": 0.1
+        "DC": 0.05
         # e- to ADU conversion factor
         "gain": 1.2
         # Number of bits for the camera
