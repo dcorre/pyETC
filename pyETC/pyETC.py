@@ -59,10 +59,7 @@ class etc():
        self.information['telescope']=name_telescope
        self.information['scale2Airmass']=scale2Airmass
 
-       # Create spectra bin in microns (observer frame)
-       lambdas = np.arange(self.information['lambda_start'],self.information['lambda_end']+self.information['lambda_step'],self.information['lambda_step'])
-       # In the following all calculations use wavelength in angstroms
-       self.information['wavelength_ang'] = lambdas*1e4   # Angstrom
+
 
    def load_telescope_design(self, name='default'):
        """ Load telescope params"""
@@ -99,7 +96,12 @@ class etc():
 
 
    def load_info(self):
-       
+
+       # Create spectra bin in microns (observer frame)
+       lambdas = np.arange(self.information['lambda_start'],self.information['lambda_end']+self.information['lambda_step'],self.information['lambda_step'])
+       # In the following all calculations use wavelength in angstroms
+       self.information['wavelength_ang'] = lambdas*1e4   # Angstrom
+
        #Load design info
        if self.information['detailed_trans'] == 1: self.information.update(set_optics_transmission(self.information))
 
