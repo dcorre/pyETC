@@ -114,3 +114,4 @@ ENV/
 
 # Exclude results files
 pyETC/results/
+notebooks/
