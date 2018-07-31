@@ -184,35 +184,37 @@ def set_object(info_dict):
             LC_data = ascii.read(object_path)
 
             #print (LC_data)
-            # Fluxes are assumed to be in microJansky
+            # Fluxes are assumed to be in miliJansky
 
             # get wavelength
             wvl_list=[]
             for dat in LC_data.group_by(['wvl']).groups.keys:
                 wvl_list.append(dat[0])
+            sed_stacked=np.zeros(len(wvl_list))
 
             td=info_dict['t_sinceBurst'] # in second
             DIT = info_dict['exptime']   # in second
-
             #print (td)
 
-            mask_time = (LC_data['Time'] >= td) & (LC_data['Time'] <= td+DIT)
-            time_list=[]
-            for dat in LC_data[mask_time].group_by(['Time']).groups.keys:
-                time_list.append(dat[0])
-            sed_stacked=np.zeros(len(wvl_list))
-
-            #Sum over the time
+            #Sum each wavelength over the time
+            time_grb=np.linspace(td,td+DIT,5)
+            
             for i,wv in enumerate(wvl_list):
-                mask_int = LC_data['wvl'][mask_time] == wv    
-                sed_stacked[i]=np.trapz(LC_data['flux'][mask_time][mask_int],time_list)
+                mask_wl = LC_data['wvl'] == wv   
+    
+                # interpolation of light curve for each wavelength
+                flux_interp = interp1d(LC_data['Time'][mask_wl],LC_data['flux'][mask_wl])
+                fluxes=[]
+                for t in time_grb:
+                    fluxes.append(flux_interp(t))
+                sed_stacked[i]=np.trapz(fluxes,time_grb)
 
             # Resample the wavelength
             flux_interp = interp1d(wvl_list,sed_stacked)
             sed_stacked_resampled=flux_interp(info_dict['wavelength_ang'])
 
             #print (sed_stacked_resampled)
-            factor_Jy=1e-6
+            factor_Jy=1e-3
             factor_time=1
 
             #Convert to Jy
