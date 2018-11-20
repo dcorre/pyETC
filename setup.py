@@ -20,7 +20,7 @@ setup_requirements = ['pytest-runner', 'numpy']
 test_requirements = ['pytest', ]
 
 setup(
-    author="David Corre",
+    author="David Corre, Alain Klotz",
     author_email='david.corre.fr@gmail.com',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
