@@ -8,6 +8,7 @@ Development Lead
 ----------------
 
 * David Corre <david.corre.fr@gmail.com>
+* Alain Klotz
 
 Contributors
 ------------
