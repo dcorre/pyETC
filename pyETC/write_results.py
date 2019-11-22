@@ -3,7 +3,7 @@ import numpy as np
 def write_results(info_dict):
     """ Write the results in a file """
 
-    f = open('%s/results/results_summary.txt' % info_dict['MainDirectory'], 'w')
+    f = open('%s/results/results_summary.txt' % info_dict['path'], 'w')
     f.write ('Information about the simulation:\n')
     f.write ('---------------------------------\n')
     if info_dict['etc_type'] == 'time':

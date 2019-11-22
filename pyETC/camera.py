@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.interpolate import interp1d
 from . import constants as cc
-from .utils import resample
+from pyETC.utils import resample
 #######################################
 
 def digitisation_noise(info_dict):
@@ -75,7 +75,7 @@ def camera_efficiency(info_dict):
     """
     cam_wavelengths=[]
     cam_eta=[]
-    directory = '%s/transmissions/detectors/' % info_dict['MainDirectory']+info_dict['cameras'][info_dict['channel']]['camera_type']+'/'+info_dict['cameras'][info_dict['channel']]['sensor']+'.dat'
+    directory = '%s/transmissions/detectors/' % info_dict['path']+info_dict['cameras'][info_dict['channel']]['camera_type']+'/'+info_dict['cameras'][info_dict['channel']]['sensor']+'.dat'
       
     with open(directory, 'r') as file:
          for line in file:

@@ -34,7 +34,7 @@ def sky_brightness(info_dict):
    lambda2 = info_dict['wavelength_ang'][-1]           # Last wavelength to study (angstrom)
 
    # load Sky brightness
-   File=open('%s/local_conditions/sky_brightness/%s.dat' % (info_dict['MainDirectory'],info_dict['sky_site']), "r")
+   File=open('%s/local_conditions/sky_brightness/%s.dat' % (info_dict['path'],info_dict['sky_site']), "r")
    lines=File.readlines()
    sb=[]
    for line in lines:
@@ -175,7 +175,7 @@ def atmospheric_transmission(info_dict):
        lambda1 = info_dict['wavelength_ang'][0]     # First wavelength to study (angstrom)
        lambda2 = info_dict['wavelength_ang'][-1]    # Last wavelength to study (angstrom)
        # Load extinction 
-       File=open('%s/local_conditions/atmosphere/%s.dat' % (info_dict['MainDirectory'],info_dict['ext_file']), "r")
+       File=open('%s/local_conditions/atmosphere/%s.dat' % (info_dict['path'],info_dict['ext_file']), "r")
        lines=File.readlines()
        wvl=[]
        extinction=[]
@@ -222,7 +222,7 @@ def atmospheric_transmission(info_dict):
 
 
    elif info_dict['atmosphere_type'] == 'file':
-       atm_path = '%s/local_conditions/atmosphere/%s.txt' % (info_dict['MainDirectory'],info_dict['atm_file'])
+       atm_path = '%s/local_conditions/atmosphere/%s.txt' % (info_dict['path'],info_dict['atm_file'])
        File=open(atm_path, "r")
        lines=File.readlines()
        wvl=[]

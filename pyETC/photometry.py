@@ -31,9 +31,9 @@ def set_filter(info_dict,norm=False,norm_val=0.95):
              transmittance of the filter at a given wavelength  (0-1)
     """
     if info_dict['detailed_trans']==1:
-         filter_path=('%s/transmissions/filters/' %  info_dict['MainDirectory'])+info_dict['filter_folder']+'/'+info_dict['filter_band']+'.txt'
+         filter_path=('%s/transmissions/filters/' %  info_dict['path'])+info_dict['filter_folder']+'/'+info_dict['filter_band']+'.txt'
     else:
-         filter_path=('%s/transmissions/throughput_curves/' % info_dict['MainDirectory']) +info_dict['filter_folder']+'/'+info_dict['filter_band']+'.txt'
+         filter_path=('%s/transmissions/throughput_curves/' % info_dict['path']) +info_dict['filter_folder']+'/'+info_dict['filter_band']+'.txt'
     
     File=open(filter_path, "r")
     lines=File.readlines()
@@ -182,7 +182,7 @@ def sed_vega(info_dict):
           Flux of Vega in erg/cm2/s/A
 
     """
-    VEGA_PATH='%s/data/bohlin2006_Vega.dat' % info_dict['MainDirectory'] # from HST CALSPEC
+    VEGA_PATH='%s/data/bohlin2006_Vega.dat' % info_dict['path'] # from HST CALSPEC
 
 
     inFile=open(VEGA_PATH, "r")

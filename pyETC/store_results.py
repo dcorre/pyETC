@@ -20,7 +20,7 @@ def result_plot(info_dict,wavelength,fph,obj_mag):
     """
 
     # print all values stored in info_dict in 'results/info.txt'
-    File = open(info_dict['MainDirectory']+'/results/info.txt','w')
+    File = open(info_dict['path']+'/results/info.txt','w')
     for key, value in info_dict.items():
          print ('%s: %s' % (key, value), file=File)
     File.close()
@@ -37,7 +37,7 @@ def result_plot(info_dict,wavelength,fph,obj_mag):
          cam_eta = info_dict['camera_efficiency']
          optics_trans =phot.set_filter(info_dict)
          sys_eff = optics_trans *cam_eta
-    plt.figure(figsize=(15,10))
+    plt.figure(figsize=(10,10))
     
     # Object ph/s/cm2/A
     ax=plt.subplot(3,1,1)
@@ -81,5 +81,5 @@ def result_plot(info_dict,wavelength,fph,obj_mag):
     plt.grid()
     plt.tick_params(labelsize=16)
     plt.tight_layout()
-    plt.savefig(info_dict['MainDirectory']+'/results/plot.png') #% (dir_python,plotname))
+    plt.savefig(info_dict['path']+'/results/plot.png') #% (dir_python,plotname))
     

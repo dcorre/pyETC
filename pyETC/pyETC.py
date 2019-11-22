@@ -6,17 +6,18 @@ import os
 import hjson
 import numpy as np
 from scipy.interpolate import interp1d
+import imp
 
 from collections import defaultdict, OrderedDict
-from .camera import set_camera
-from .local_conditions import set_local_conditions
-from .preliminary_computations import set_preliminary_computation
-from .photometry import set_photometry
-from .solver import etc_computation as etc_comp
-from .set_object import set_object
-from .optics import set_optics_transmission, load_optical_element
-from .write_results import write_results
-from .store_results import result_plot
+from pyETC.camera import set_camera
+from pyETC.local_conditions import set_local_conditions
+from pyETC.preliminary_computations import set_preliminary_computation
+from pyETC.photometry import set_photometry
+from pyETC.solver import etc_computation as etc_comp
+from pyETC.set_object import set_object
+from pyETC.optics import set_optics_transmission, load_optical_element
+from pyETC.write_results import write_results
+from pyETC.store_results import result_plot
 
 __author__ = 'David Corre'
 __version__ = 1.0
@@ -25,10 +26,15 @@ __version__ = 1.0
 class etc():
    """ Exposure Time Calculator """
 
-   def __init__(self,path=os.getenv('pyETC_DIR')+'/pyETC',configFile=os.getenv('pyETC_DIR')+'/pyETC/configFiles/example.hjson',config_type='file',name_telescope='default',scale2Airmass=False):
+   def __init__(self,configFile='example.hjson',config_type='file',name_telescope='default',scale2Airmass=False):
        """ Class constructor """
   
-       self.path = path 
+       try:
+           _, path, _ = imp.find_module('pyETC')
+       except:
+           print ('path to pyETC can not be found.')
+
+       self.path = path
        self.configfile = configFile
        self.scale2Airmass=scale2Airmass
  
@@ -38,10 +44,10 @@ class etc():
 
        if config_type == 'file':
            # Load the input file in hjson format into a dictionary
-           with open(self.configfile,encoding='utf-8') as f:
+           with open(self.path+'/config/'+self.configfile,encoding='utf-8') as f:
                self.information.update(hjson.load(f))
        elif config_type == 'data':
-           self.information.update(configFile)
+           self.information.update(self.path+'/config/'+configFile)
 
        # Make booleans for verbose, make plots and diplay plots
        if self.information['verbose'].lower() == 'true':
@@ -55,7 +61,7 @@ class etc():
 
 
        # Add information to dictionary 
-       self.information['MainDirectory']=path
+       self.information['path']=self.path
        self.information['telescope']=name_telescope
        self.information['scale2Airmass']=scale2Airmass
 
@@ -63,8 +69,7 @@ class etc():
 
    def load_telescope_design(self, name='default'):
        """ Load telescope params"""
-
-       with open('%s/telescope_database/%s.hjson' % (self.path,name),encoding='utf-8') as f:
+       with open(self.path+'/telescope_database/%s.hjson' % (name),encoding='utf-8') as f:
            telescope_params=hjson.load(f)
        #Update parameters
        try:

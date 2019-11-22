@@ -7,7 +7,7 @@ from . import utils
 from . import constants as cc
 from . import photometry as phot
 from . import camera as cam
-from .preliminary_computations import A_tel,system_response
+from pyETC.preliminary_computations import A_tel,system_response
 
 #######################################
 
@@ -38,7 +38,7 @@ def set_object(info_dict):
  
     elif info_dict['object_type'] == 'spectrum':
   
-        object_path=info_dict['MainDirectory']+info_dict['object_folder']+info_dict['object_file']
+        object_path=info_dict['path']+info_dict['object_folder']+info_dict['object_file']
 
         inFile=open(object_path, "r")
         lines=inFile.readlines()
@@ -179,7 +179,7 @@ def set_object(info_dict):
             #-----------------------------
             # Loading light curve
             #-----------------------------
-            object_path=info_dict['MainDirectory']+info_dict['object_folder']+info_dict['object_file']
+            object_path=info_dict['path']+info_dict['object_folder']+info_dict['object_file']
 
             LC_data = ascii.read(object_path)
 

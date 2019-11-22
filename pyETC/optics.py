@@ -2,7 +2,7 @@
 
 import numpy as np
 from . import constants as cc
-from  .utils import resample
+from  pyETC.utils import resample
 
 
 def load_optical_element(info_dict,element,element_type,norm=False,norm_val=1.):
@@ -30,7 +30,7 @@ def load_optical_element(info_dict,element,element_type,norm=False,norm_val=1.):
    trans :  array
             transmittance of the lense at a given wavelength  (0-1)
    """
-   lense_path = '%s/transmissions/%s/%s.txt' % (info_dict['MainDirectory'],element,element_type)
+   lense_path = '%s/transmissions/%s/%s.txt' % (info_dict['path'],element,element_type)
    File=open(lense_path, "r")
    lines=File.readlines()
 
