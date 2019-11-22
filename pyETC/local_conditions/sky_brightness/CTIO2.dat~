@@ -1,8 +1,0 @@
-# Sky brightness (mAB/arcsec2)  for CTIO
-# CTIO data : http://astro.wku.edu/strolger/UNITS.txt
-# Band eff_wvl 0 14
-U 3500 22.4 22.4
-B 4400 22.9 22.9
-V 5500 22.0 22.0
-R 6400 22.8 22.8
-I 7900 22.4 22.4

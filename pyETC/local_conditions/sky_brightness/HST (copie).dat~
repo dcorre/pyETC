@@ -1,7 +1,0 @@
-# Sky brightness for HST
-# HST data : http://astro.wku.edu/strolger/UNITS.txt
-Band eff_wvl 0 14
-B 4400 24.0 24.0
-V 5500 23.3 23.3
-R 6400 22.8 22.8
-I 7900 22.4 22.4
