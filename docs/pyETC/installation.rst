@@ -90,33 +90,3 @@ You can now install it with:
 .. _tarball: https://github.com/dcorre/pyETC/tarball/master
 
 
-
-Set environment variable
-------------------------
-
-Create an environment variable, pyETC_DIR, corresponding to the directory where you want to install the project.
-
-* **For Ubuntu**:
-
-Open the .bashrc file and add the following line at the end:
-
-.. code-block:: bash
-
-    # add a directory for the pyETC package  (change the path name accordingly to yours)
-    export pyETC_DIR="/home/dcorre/code/pyETC"
-
-
-Then type source .bashrc in the terminal to take the changes into account, or open a new terminal.
-
-* **For windows**:
-
-Right click on My Computer -> Properties -> Advanced System settings -> Environment Variables
-
-Add variable pyETC_DIR with value "/home/dcorre/code/pyETC" (change the path name accordingly to yours)
-
-Then close and open the terminal again to update the modifications (for windows only)
-
-
-* **For Mac**: ???
-
-
