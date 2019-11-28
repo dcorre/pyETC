@@ -1,0 +1,194 @@
+{
+
+########### EXPOSURE TIME CALCULATOR #####################
+
+#-------- CALCULATION CONFIGURATION ----------------------------#
+#Verbose
+"verbose": False
+
+#Make overview plot for ETC results
+"plot": False
+
+
+# Set the wavelength range
+# In microns
+"lambda_start": 0.2
+"lambda_end": 3
+"lambda_step": 0.001
+
+#What quantity to compute: 'time', 'mag', 'snr'
+"etc_type": snr
+
+#If etc_type='time' or 'SNR', set the object type ('magnitude','spectrum','grb_sim')
+"object_type": magnitude
+
+#Used if object_type='spectrum' you have to specifiy directory and name of the file
+#Reads a file with 2 columns: wavelength (in angstrom) / Flux in erg/cm2/s/A
+"object_folder": /data/calspec/
+"object_file": bohlin2006_Vega.dat
+
+#Used if etc_type='time' or 'snr' and object_type='magnitude'
+"object_magnitude": 16
+#Used if etc_type='time' or 'mag'
+"SNR": 5
+
+#exposure time in seconds
+"exptime": 7
+#Number of expositions
+"Nexp": 1
+
+
+#-------- LOCAL CONDITIONS  ---------------------#
+#Seeing in arcsec at 500nm and for an airmass 1 
+"seeing_zenith": 0.7
+
+#elevation in degrees
+"elevation": 41.9
+
+#moon age: 0: new moon  / 14: full moon
+"moon_age": 7.0
+
+#Night temperature in °C (to calculate instrument background)
+"Temp_night": 5
+
+#-------- TELESCOPE -----------------------------#
+
+#PSF profile ('gaussian' or 'moffat')
+"psf_type": gaussian
+"moffat_beta": 3.0 
+
+#FWHM_type: (see function FWHM() in preliminary_computations.py for more details)
+# - seeing: seeing + optics
+# - prf: seeing + optics + prf
+"fwhm_type": seeing
+
+
+
+#-------- FILTER -----------------------------#
+"filter_band": J
+
+#-------- CAMERA --------------------------------#
+# The channel name should be the same as the ones defined in the telescope config hjson file.
+"channel": CAGIRE
+
+#Binning
+"binning_X": 1
+"binning_Y": 1
+
+#-------- PHOTOMETRY ----------------------------#
+
+#Photometric system ('AB' or vega')
+"photometry_system": AB
+
+# radius used for the aperture photometry (fwhm fraction)
+"radius_int_fwhm": 0.675
+
+#PSF position on the central pixel: nogrid / center / corner
+"PSF_position_on_ccd": nogrid
+
+
+########### IMAGE SIMULATOR #####################
+
+#input sources
+#"SourcesList": {
+#  "generate": {
+#       "RA": 194.967
+#       "DEC": 15.900
+#       "radius": 0.2
+#       "catalog": Panstarrs
+#       "frame": icrs
+#       "band": z
+#       "output": Make_one_image/SourcesCatalog_z.txt
+#   }
+"SourcesList": {
+  "generate": {
+       "RA": -100
+       "DEC": -30
+       "radius": 23
+       "catalog": II/246
+       "frame": icrs
+       "band": J
+       "output": Make_one_image/SourcesCatalog_J.txt
+   }
+}
+#"SourcesList": {"file": /data/catalog/grb170202a_magR.txt}
+
+"PSF": {
+   "atmosphere": {
+      "type": moffat
+      "beta": 2
+      "size": [64,64]
+      "output": atmosphere/atmosphere
+   }
+   "instrument": {
+      "type": airy
+      "size": [64,64]
+      "output": airy_ideal_psfs/instrument
+   }
+   "total": {
+      "method": compute
+      "file": total_PSF/PSF_total
+   }
+}
+
+
+#PSF file to use
+#"PSFfile" : /data/psf/oversampled_psf/zemax_moffat_128_J_ideal_s07.fits
+# we must precise the oversapmling of the PSF / image to simulate
+#g: 15/1.496=10.0267  / z: 15/2.704=5.5473   H:18/3.064=5.8747
+#r: 15/(8*0.384)=4.8828     / i: 15/(8*0.384)=4.8828   / J: 18/(8*0.384)=5.8594
+"psfoversampling" : 1
+
+#Position of the reference pixel
+"RA" : -100 
+"DEC" : -30
+
+#name of the output file
+"output" : Make_one_image/image_J.fits
+
+
+#Control flags (can be yes/no, true/false, 1/0)
+#----- Compulsory ones ------
+#add sources
+"addSources" : yes
+
+#add noise?
+"shotNoise" : yes
+
+#add cosmetics?
+"cosmetics" : yes
+"DeadPixFile" : Make_one_image/DeadPixs_nir.fits
+"HotPixFile" : Make_one_image/HotPixs_nir.fits
+
+#add cosmic rays?
+"cosmicRays" : no
+
+# ---- Optional ones -----
+#add sky background?
+"background" : yes
+
+#apply bleeding effect?
+"bleeding": no
+
+#add readout time?
+"readoutNoise": yes
+
+#add digitisation noise?
+"digiNoise" : yes
+
+#add dark current?
+"darkCurrent" : yes
+
+#convert to ADU
+"ADU": yes
+"GainMapFile": Make_one_image/Gain_nir.fits
+
+#Flat
+"Vignetting": yes
+"VignettingFile": Make_one_image/Vignetting_nir.fits
+
+#Offset
+"Offset": yes
+"OffsetFile": Make_one_image/Offset_nir.fits
+
+} 

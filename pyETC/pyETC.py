@@ -47,7 +47,8 @@ class etc():
            with open(self.path+'/config/'+self.configfile,encoding='utf-8') as f:
                self.information.update(hjson.load(f))
        elif config_type == 'data':
-           self.information.update(self.path+'/config/'+configFile)
+
+           self.information.update(configFile)
 
        # Make booleans for verbose, make plots and diplay plots
        if self.information['verbose'].lower() == 'true':

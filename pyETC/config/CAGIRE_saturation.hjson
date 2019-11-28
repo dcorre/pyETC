@@ -1,0 +1,183 @@
+{
+
+########### EXPOSURE TIME CALCULATOR #####################
+
+#-------- CALCULATION CONFIGURATION ----------------------------#
+#Verbose
+"verbose": False
+
+#Make overview plot for ETC results
+"plot": False
+
+# Set the wavelength range
+# In microns
+"lambda_start": 0.2
+"lambda_end": 3
+"lambda_step": 0.001
+
+#What quantity to compute: 'time', 'mag', 'snr'
+"etc_type": snr
+
+#If etc_type='time' or 'SNR', set the object type ('magnitude','spectrum','grb_sim')
+"object_type": magnitude
+
+#Used if object_type='spectrum' you have to specifiy directory and name of the file
+#Reads a file with 2 columns: wavelength (in angstrom) / Flux in erg/cm2/s/A
+"object_folder": data/test
+"object_file": bohlin2006_Vega.dat
+
+#Used if etc_type='time' or 'snr' and object_type='magnitude'
+"object_magnitude": 16
+#Used if etc_type='time' or 'mag'
+"SNR": 5
+
+#exposure time in seconds
+"exptime": 300
+#Number of expositions
+"Nexp": 1
+
+
+#-------- LOCAL CONDITIONS  ---------------------#
+#Seeing in arcsec at 500nm and for an airmass 1 
+"seeing_zenith": 1
+
+#elevation in degrees
+"elevation": 41.9
+
+#moon age: 0: new moon  / 14: full moon
+"moon_age": 7.0
+
+#Night temperature in °C (to calculate instrument background)
+"Temp_night": 5
+
+#-------- TELESCOPE -----------------------------#
+
+#PSF profile ('gaussian' or 'moffat')
+"psf_type": gaussian
+"moffat_beta": 3.0 
+
+#FWHM_type: (see function FWHM() in preliminary_computations.py for more details)
+# - seeing: seeing + optics
+# - prf: seeing + optics + prf
+"fwhm_type": seeing
+
+
+
+#-------- FILTER -----------------------------#
+"filter_band": J
+
+#-------- CAMERA --------------------------------#
+#either 'CAGIRE' or 'DDRAGO-B' or 'DDRAGO-R' 
+"channel": CAGIRE
+
+#Binning
+"binning_X": 1
+"binning_Y": 1
+
+#-------- PHOTOMETRY ----------------------------#
+
+#Photometric system ('AB' or vega')
+"photometry_system": AB
+
+# radius used for the aperture photometry (fwhm fraction)
+"radius_int_fwhm": 0.675
+
+#PSF position on the central pixel: nogrid / center / corner
+"PSF_position_on_ccd": nogrid
+
+########### IMAGE SIMULATOR #####################
+
+#input sources (path starts at IS/data/catalog/)
+"SourcesList": {
+  "generate": {
+       "RA": 260
+       "DEC": -30
+       "radius": 21.7
+       "catalog": II/246
+       "frame": icrs
+       
+   }  
+}
+
+
+# For all PSFs path starts at IS/data/psf/
+"PSF": {
+   "atmosphere": {
+      "type": moffat
+      "beta": 2
+      "size": [256,256]
+      "output": atmosphere/atmosphere.fits
+   }
+   "instrument": {
+      "type": airy
+      "size": [256,256]
+      "output": airy_ideal_psfs/instrument.fits
+   }
+   "total": {
+      "method": compute
+      "file": total_PSF/PSF_total.fits
+   }
+}
+
+
+#PSF file to use
+#"PSFfile" : /data/psf/oversampled_psf/zemax_moffat_128_J_ideal_s07.fits
+# we must precise the oversapmling of the PSF / image to simulate
+#g: 15/1.496=10.0267  / z: 15/2.704=5.5473   H:18/3.064=5.8747
+#r: 15/(8*0.384)=4.8828     / i: 15/(8*0.384)=4.8828   / J: 18/(8*0.384)=5.8594
+"psfoversampling" : 1
+
+#name of the output file (path starts at ImSimpy/data/images/)
+"output" : CAGIRE_saturation/image.fits
+
+#Position of the reference pixel
+"RA" : 260 
+"DEC" : -30
+
+#Control flags (can be yes/no, true/false, 1/0)
+#----- Compulsory ones ------
+#add sources
+"addSources" : yes
+
+#add noise?
+"shotNoise" : yes
+
+#add cosmetics?
+"cosmetics" : no
+# Path starts at ImSimpy/data/Cosmetics/
+"DeadPixFile" : CAGIRE_saturation/DeadPixs_vis.fits
+"HotPixFile" : CAGIRE_saturation/HotPixs_vis.fits
+
+#add cosmic rays?
+"cosmicRays" : no
+
+# ---- Optional ones -----
+#add sky background?
+"background" : yes
+
+#apply bleeding effect?
+"bleeding" : no
+
+#add readout time?
+"readoutNoise": yes
+
+#add digitisation noise?
+"digiNoise" : no
+
+#add dark current?
+"darkCurrent" : yes
+
+#convert to ADU
+"ADU": yes
+"GainMapFile": CAGIRE_saturation/Gain_nir.fits
+
+#Vignetting effect
+"Vignetting": no
+# Path starts at ImSimpy/data/Vignetting/
+"VignettingFile": CAGIRE_saturation/Vignetting_vis.fits
+
+#Offset
+"Offset": no
+# Path starts at ImSimpy/data/Offset/
+"OffsetFile": CAGIRE_saturation/Offset_vis.fits
+} 
