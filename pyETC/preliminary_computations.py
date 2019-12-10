@@ -249,7 +249,7 @@ def FWHM(info_dict):
          fwhm_prf = info_dict['pixelScale_X']
          fwhm_tot = np.sqrt(info_dict['seeing_los_arcsec']**2. + fwhm_inst**2. + fwhm_prf**2)
 
-    info_dict['FWHM_tot']= fwhm_inst
+    info_dict['FWHM_tot']= fwhm_tot
     return info_dict
 #---------------------------------------------------------------------------------------------
 def radius_aperture(info_dict):
