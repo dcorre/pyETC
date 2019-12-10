@@ -51,11 +51,11 @@ class etc():
            self.information.update(configFile)
 
        # Make booleans for verbose, make plots and diplay plots
-       if self.information['verbose'].lower() == 'true':
+       if str(self.information['verbose']).lower() == 'true':
            self.information['verbose'] = True
        else:
            self.information['verbose'] = False
-       if self.information['plot'].lower() == 'true':
+       if str(self.information['plot']).lower() == 'true':
            self.information['plot'] = True
        else:
            self.information['plot'] = False
