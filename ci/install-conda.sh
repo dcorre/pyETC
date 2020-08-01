@@ -1,8 +1,8 @@
 #!/bin/bash
 #
 # Install pyETC and dependencies using Conda
-#
 
+echo "$(uname)";
 # install miniconda
 if ! which conda 1> /dev/null; then
     if test ! -f ${HOME}/miniconda/etc/profile.d/conda.sh; then
@@ -10,7 +10,8 @@ if ! which conda 1> /dev/null; then
         [ "$(uname)" == "Darwin" ] && MC_OSNAME="MacOSX" || MC_OSNAME="Linux"
         MINICONDA="Miniconda${PYTHON_VERSION%%.*}-latest-${MC_OSNAME}-x86_64.sh"
         curl -L https://repo.continuum.io/miniconda/${MINICONDA} -o miniconda.sh
-        bash miniconda.sh -b -u -p ${HOME}/miniconda
+        #bash miniconda.sh -b -u -p ${HOME}/miniconda
+        bash miniconda.sh -b -p ${HOME}/miniconda
     fi
     source ${HOME}/miniconda/etc/profile.d/conda.sh
 fi
