@@ -9,7 +9,7 @@ os:
 
 # -- build --------------------------------------
 
-matrix:
+jobs:
   # bail-out early for failures
   fast_finish: true
 
