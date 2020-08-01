@@ -14,6 +14,7 @@ if ! which conda 1> /dev/null; then
         #bash miniconda.sh -b -u -p ${HOME}/miniconda
         bash miniconda.sh -b -p ${HOME}/miniconda
     fi
+    source "$HOME/miniconda/etc/profile.d/conda.sh"
 fi
 hash -r
 
