@@ -1,27 +1,26 @@
 ---
 # Config file for automatic testing at travis-ci.org
-language: python
 
-jobs:
+matrix:
   include:
+    - name: "Python 3.7 on Linux"
+      os: linux
+      language: python
+      python: 3.7
     - name: "Python 3.7 on Windows"
       os: windows
       language: sh
-      python: 3.7
       before_install:
-        - choco install python3.7
+        - choco install python3
         - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
-    - name: "Python 3.7 on Linux"
-      os: linux
-      python: 3.7
     - name: "Python 3.7 on Macos"
       os: osx
       language: generic
-      python: 3.7
+      env: TOXENV=py37
 
 # install package + test dependencies
 install:
-  - pip install ".[test]" .
+  - pip install -e ".[test]" .
 
 # run tests
 script: pytest
