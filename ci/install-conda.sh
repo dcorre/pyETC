@@ -8,11 +8,11 @@ if ! which conda 1> /dev/null; then
         # install conda
         #[ "$(uname)" == "Darwin" ] && MC_OSNAME="MacOSX" || MC_OSNAME="Linux" || MC_OSNAME="Windows"
 	echo "$TRAVIS_OS_NAME";
-	if "$TRAVIS_OS_NAME" == "windows"; then
+	if $TRAVIS_OS_NAME == "windows"; then
 		MC_OSNAME="Windows"
-	elif "$TRAVIS_OS_NAME" == "linux"; then
+	elif $TRAVIS_OS_NAME == "linux"; then
                 MC_OSNAME="Linux"
-	elif "$TRAVIS_OS_NAME" == "osx"; then
+	elif $TRAVIS_OS_NAME == "osx"; then
                 MC_OSNAME="MacOSX"
         fi
 	echo "$MC_OSNAME";
