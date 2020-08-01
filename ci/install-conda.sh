@@ -17,7 +17,7 @@ if ! which conda 1> /dev/null; then
         MINICONDA="Miniconda${PYTHON_VERSION%%.*}-latest-${MC_OSNAME}-x86_64.sh"
         curl -L https://repo.continuum.io/miniconda/${MINICONDA} -o miniconda.sh
         #bash miniconda.sh -b -u -p ${HOME}/miniconda
-	if [ $MC_OSNAME == "Windows" ]; then
+	if [ $MC_OSNAME == "Windows" ]; then
 	    start /wait "" Miniconda3-latest-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=C:\Users\Administrator\miniconda3
 	else
             bash miniconda.sh -b -p ${HOME}/miniconda
