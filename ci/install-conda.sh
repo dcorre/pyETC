@@ -13,7 +13,9 @@ if ! which conda 1> /dev/null; then
         #bash miniconda.sh -b -u -p ${HOME}/miniconda
         bash miniconda.sh -b -p ${HOME}/miniconda
     fi
-    source ${HOME}/miniconda/etc/profile.d/conda.sh
+    if MC_OSNAME="MacOSX"; then
+        source ${HOME}/miniconda/etc/profile.d/conda.sh
+    fi
 fi
 hash -r
 
@@ -48,7 +50,5 @@ conda install --name pyETC --quiet --yes --file requirements_dev.txt --update-al
 #;
 
 # activate the environment
-if MC_OSNAME="MacOSX"; then
-	. ${CONDA_PATH}/etc/profile.d/conda.sh
-fi
+. ${CONDA_PATH}/etc/profile.d/conda.sh
 conda activate pyETC
