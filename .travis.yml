@@ -15,74 +15,13 @@ before_install:
   - pip install codecov
 
 
+# install package + test dependencies
 install:
-  - pip install ".[test]" . # install package + test dependencies
+  - pip install ".[test]" .
 
-script: pytest # run tests
+# run tests
+script: pytest
 
+# perform coverage
 after_success:
-  - codecov # submit coverage
-
-"""
-os:
-    - linux
-
-# Setting sudo to false opts in to Travis-CI container-based builds.
-sudo: false
-
-# The apt packages below are needed for sphinx builds. A full list of packages
-# that can be included can be found here:
-#
-# https://github.com/travis-ci/apt-package-whitelist/blob/master/ubuntu-precise
-
-addons:
-    apt:
-        packages:
-            - graphviz
-            - texlive-latex-extra
-            - dvipng
-
-env:
-    global:
-
-        # The following versions are the 'default' for tests, unless
-        # overridden underneath. They are defined here in order to save having
-        # to repeat them for all configurations.
-        - PYTHON_VERSION=3.6
-        - NUMPY_VERSION=stable
-        - ASTROPY_VERSION=stable
-        - MAIN_CMD='python setup.py'
-        - SETUP_CMD='test'
-        - PIP_DEPENDENCIES=''
-        - EVENT_TYPE='pull_request push'
-
-
-
-# In some cases when a repository is used for both Linux and Windows, it may be desirable to set core.symlinks option.
-git:
-  symlinks: true
-
-# blocklist
-branches:
-  except:
-  - test
-
-# safelist
-branches:
-  only:
-  - master
-
-python:
-  - 3.8
-  - 3.7
-  - 3.6
-  - 3.5
-
-# Command to install dependencies, e.g.
-# pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis
-
-# Command to run tests, e.g. python setup.py test
-script: tox
-"""
-
+  - codecov
