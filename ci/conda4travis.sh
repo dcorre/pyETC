@@ -47,7 +47,8 @@ fi
 
 # install conda dependencies (based on pip requirements file)
 conda run --name test-env \
-conda install --name test-env --quiet --yes --file requirements_dev.txt --update-all
+#conda install --name test-env --quiet --yes --file requirements_dev.txt --update-all
+conda install --name test-env --yes --file requirements_dev.txt --update-all
 
 # activate the environment
 . ${CONDA_PATH}/etc/profile.d/conda.sh
