@@ -8,7 +8,12 @@ if ! which conda 1> /dev/null; then
     if test ! -f ${HOME}/miniconda/etc/profile.d/conda.sh; then
         # install conda
         [ "$(uname)" == "Darwin" ] && MC_OSNAME="MacOSX" || MC_OSNAME="Linux" || MC_OSNAME="Windows"
-	echo "$MC_OSNAME"
+	echo "$TRAVIS_OS_NAME";
+	if "$TRAVIS_OS_NAME" == "Windows"; then
+		MC_OSNAME="Windows"
+        fi
+	echo "$MC_OSNAME";
+
         MINICONDA="Miniconda${PYTHON_VERSION%%.*}-latest-${MC_OSNAME}-x86_64.sh"
         curl -L https://repo.continuum.io/miniconda/${MINICONDA} -o miniconda.sh
         #bash miniconda.sh -b -u -p ${HOME}/miniconda
