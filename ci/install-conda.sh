@@ -48,5 +48,7 @@ conda install --name pyETC --quiet --yes --file requirements_dev.txt --update-al
 #;
 
 # activate the environment
-. ${CONDA_PATH}/etc/profile.d/conda.sh
+if MC_OSNAME="MacOSX"; then
+	. ${CONDA_PATH}/etc/profile.d/conda.sh
+fi
 conda activate pyETC
