@@ -1,26 +1,31 @@
 ---
 # Config file for automatic testing at travis-ci.org
 
-matrix:
-  include:
-    - name: "Python 3.7 on Linux"
-      os: linux
-      language: python
-      python: 3.7
-    - name: "Python 3.7 on Windows"
-      os: windows
-      language: sh
-      before_install:
-        - choco install python3
-        - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
-    - name: "Python 3.7 on Macos"
-      os: osx
-      language: generic
-      env: TOXENV=py37
+language: minimal
 
-# install package + test dependencies
+os: osx
+
+# -- build --------------------------------------
+
+matrix:
+  # bail-out early for failures
+  fast_finish: true
+
+  include:
+    # conda builds
+    - name: "conda:3.6"
+      env: PYTHON_VERSION="3.6"
+    - name: "conda:3.7"
+      env: PYTHON_VERSION="3.7"
+    - name: "conda:3.8"
+      env: PYTHON_VERSION="3.8"
+
 install:
-  - pip install -e ".[test]" .
+  - set -ex;
+  # install miniconda, create env, and activate
+  - . ./ci/install-conda.sh
+  # install this package
+  - python -m pip install .
 
 # run tests
 script: pytest
