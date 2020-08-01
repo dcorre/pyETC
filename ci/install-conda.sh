@@ -14,7 +14,7 @@ if ! which conda 1> /dev/null; then
                 MC_OSNAME="Linux"
 	elif "$TRAVIS_OS_NAME" == "osx"; then
                 MC_OSNAME="MacOSX"
-
+        fi
 	echo "$MC_OSNAME";
 
         MINICONDA="Miniconda${PYTHON_VERSION%%.*}-latest-${MC_OSNAME}-x86_64.sh"
