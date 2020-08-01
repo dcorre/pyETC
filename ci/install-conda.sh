@@ -2,16 +2,19 @@
 #
 # Install pyETC and dependencies using Conda
 
-echo "$(uname)";
 # install miniconda
 if ! which conda 1> /dev/null; then
     if test ! -f ${HOME}/miniconda/etc/profile.d/conda.sh; then
         # install conda
-        [ "$(uname)" == "Darwin" ] && MC_OSNAME="MacOSX" || MC_OSNAME="Linux" || MC_OSNAME="Windows"
+        #[ "$(uname)" == "Darwin" ] && MC_OSNAME="MacOSX" || MC_OSNAME="Linux" || MC_OSNAME="Windows"
 	echo "$TRAVIS_OS_NAME";
-	if "$TRAVIS_OS_NAME" == "Windows"; then
+	if "$TRAVIS_OS_NAME" == "windows"; then
 		MC_OSNAME="Windows"
-        fi
+	elif "$TRAVIS_OS_NAME" == "linux"; then
+                MC_OSNAME="Linux"
+	elif "$TRAVIS_OS_NAME" == "osx"; then
+                MC_OSNAME="MacOSX"
+
 	echo "$MC_OSNAME";
 
         MINICONDA="Miniconda${PYTHON_VERSION%%.*}-latest-${MC_OSNAME}-x86_64.sh"
