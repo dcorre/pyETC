@@ -4,15 +4,15 @@
 language: minimal
 
 env:
-#  - PYTHON_VERSION="2.7"
-  - PYTHON_VERSION="3.6"
-# - PYTHON_VERSION="3.7"
-# - PYTHON_VERSION="3.8"
+#  - PYTHON_VERSION=2.7
+  - PYTHON_VERSION=3.6
+# - PYTHON_VERSION=3.7
+# - PYTHON_VERSION=3.8
 
 os:
-  - osx
+#  - osx
   - linux
-  - windows
+#  - windows
 
 # bail-out early for failures
 fast_finish: true
@@ -34,4 +34,4 @@ script: pytest
 
 # perform coverage
 after_success:
-  - codecov
+  - bash -ex ci/codecov.sh

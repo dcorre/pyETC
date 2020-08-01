@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Set conda path info
 if [[ "$TRAVIS_OS_NAME" != "windows" ]]; then
     export MINICONDA_PATH=$HOME/miniconda;
@@ -13,10 +15,10 @@ if [[ "$TRAVIS_OS_NAME" != "windows" ]]; then
     mkdir -p $HOME/download;
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
         echo "downloading miniconda.sh for linux";
-        curl -L https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o $HOME/download/miniconda.sh;
+        curl -L https://repo.continuum.io/miniconda/Miniconda${PYTHON_VERSION%%.*}-latest-Linux-x86_64.sh -o $HOME/download/miniconda.sh;
     elif  [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
         echo "downloading miniconda.sh for osx";
-        curl -L  https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -o $HOME/download/miniconda.sh;
+        curl -L  https://repo.continuum.io/miniconda/Miniconda${PYTHON_VERSION%%.*}-latest-MacOSX-x86_64.sh -o $HOME/download/miniconda.sh;
     fi;
 fi;
   # Install openssl for Windows
