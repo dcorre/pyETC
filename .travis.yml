@@ -4,8 +4,8 @@
 language: minimal
 
 os:
-   - osx
-   - linux
+  - osx
+  - linux
 
 # -- build --------------------------------------
 
@@ -28,7 +28,7 @@ install:
   - . ./ci/install-conda.sh
   # install this package
   - python -m pip install .
-  # install codecov
+  # install codecov
   - pip install codecov
 
 # run tests
