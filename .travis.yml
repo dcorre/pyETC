@@ -3,23 +3,26 @@
 
 language: minimal
 
+env:
+  - PYTHON_VERSION="3.6"
+  - PYTHON_VERSION="3.7"
+  - PYTHON_VERSION="3.8"
+
 os:
   - osx
   - linux
   - windows
 
-env: 
-  - PYTHON_VERSION="3.6"
-  - PYTHON_VERSION="3.7"
-  - PYTHON_VERSION="3.8"
-
 # bail-out early for failures
 fast_finish: true
+
+before_install:
+  - source ./ci/conda4travis_before.sh
 
 install:
   - set -ex;
   # install miniconda, create env, and activate
-  - . ./ci/install-conda.sh
+  - source ./ci/conda4travis.sh
   # install this package
   - python -m pip install .
   # install codecov
