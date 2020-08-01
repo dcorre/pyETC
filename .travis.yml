@@ -26,6 +26,8 @@ install:
   - . ./ci/install-conda.sh
   # install this package
   - python -m pip install .
+  # install codecov
+  - pip install codecov
 
 # run tests
 script: pytest
