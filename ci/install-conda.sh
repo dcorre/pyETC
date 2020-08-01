@@ -31,22 +31,20 @@ if [ ! -f ${CONDA_PATH}/envs/pyETC/conda-meta/history ]; then
 fi
 
 # install conda dependencies (based on pip requirements file)
-conda run --name gwpyci \
-python ./ci/parse-conda-requirements.py requirements-dev.txt -o conda-reqs.txt
-conda install --name pyETC --quiet --yes --file conda-reqs.txt --update-all
-rm -f conda-reqs.txt  # clean up
+conda run --name pyETC \
+conda install --name pyETC --quiet --yes --file requirements_dev.txt --update-all
 
 # install other conda packages that aren't represented in the requirements file
-conda install --name gwpyci --quiet --yes \
-    "python-framel>=8.40.1" \
-    "python-lal" \
-    "python-lalframe" \
-    "python-lalsimulation" \
-    "python-ldas-tools-framecpp" \
-    "python-nds2-client" \
-    "root>=6.20" \
-    "root_numpy" \
-;
+#conda install --name gwpyci --quiet --yes \
+#    "python-framel>=8.40.1" \
+#    "python-lal" \
+#    "python-lalframe" \
+#    "python-lalsimulation" \
+#    "python-ldas-tools-framecpp" \
+#    "python-nds2-client" \
+#    "root>=6.20" \
+#    "root_numpy" \
+#;
 
 # activate the environment
 . ${CONDA_PATH}/etc/profile.d/conda.sh
