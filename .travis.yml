@@ -7,20 +7,16 @@ os:
   - osx
   - linux
 
+env: 
+  - PYTHON_VERSION="3.6"
+  - PYTHON_VERSION="3.7"
+  - PYTHON_VERSION="3.8"
+
 # -- build --------------------------------------
 
-jobs:
-  # bail-out early for failures
-  fast_finish: true
+# bail-out early for failures
+fast_finish: true
 
-  include:
-    # conda builds
-    - name: "conda:3.6"
-      env: PYTHON_VERSION="3.6"
-    - name: "conda:3.7"
-      env: PYTHON_VERSION="3.7"
-    - name: "conda:3.8"
-      env: PYTHON_VERSION="3.8"
 
 install:
   - set -ex;
