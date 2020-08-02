@@ -24,6 +24,11 @@ install:
   - set -ex;
   # install miniconda, create env, and activate
   - source ./ci/conda4travis.sh
+  # install dependency
+  - git clone https://github.com/dcorre/pyGRBaglow.git
+  - cd pyGRBaglow
+  - python setup.py develop
+  - cd ..
   # install this package
   - python setup.py develop
 
