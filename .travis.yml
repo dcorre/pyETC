@@ -31,8 +31,9 @@ install:
 
 # run tests
 script: 
-#  - pytest --cov-report=xml --cov=pyETC tests/
-   - coverage run tests
+  - pytest --cov-report term --cov=pyETC tests/
+#   - coverage run tests
+
 # perform coverage
 after_success:
   - codecov
