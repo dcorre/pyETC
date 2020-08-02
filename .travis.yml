@@ -11,14 +11,15 @@ env:
 
 os:
   - osx
-  - linux
-  - windows
+#  - linux
+#  - windows
 
 # bail-out early for failures
 fast_finish: true
 
 before_install:
   - source ./ci/conda4travis_before.sh
+  - brew install git-lfs
 
 install:
   - set -ex;
