@@ -59,3 +59,6 @@ conda install --name test-env --yes --file requirements_dev.txt --update-all
 # activate the environment
 . ${CONDA_PATH}/etc/profile.d/conda.sh
 conda activate test-env
+
+# install other dependencies
+pip install hjson
