@@ -2,7 +2,7 @@
 
 """Main module."""
 
-import os
+import os, glob
 import hjson
 import numpy as np
 from scipy.interpolate import interp1d
@@ -66,10 +66,9 @@ class etc():
        self.information['telescope']=name_telescope
        self.information['scale2Airmass']=scale2Airmass
 
-
-
    def load_telescope_design(self, name='default'):
        """ Load telescope params"""
+
        with open(self.path+'/telescope_database/%s.hjson' % (name),encoding='utf-8') as f:
            telescope_params=hjson.load(f)
        #Update parameters

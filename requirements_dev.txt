@@ -4,12 +4,14 @@ wheel
 watchdog
 flake8
 tox
+codecov
 coverage
 Sphinx
 twine
 
 pytest
 pytest-runner
+pytest-cov
 
 #hjson
 matplotlib

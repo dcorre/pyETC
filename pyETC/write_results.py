@@ -1,7 +1,16 @@
 import numpy as np
+import os, errno
 
 def write_results(info_dict):
     """ Write the results in a file """
+
+    # create folder results if not existing
+    directory = '%s/results/' % info_dict['path']
+    try:
+        os.makedirs(directory)
+    except OSError as e:
+        if e.errno != errno.EEXIST:
+            raise
 
     f = open('%s/results/results_summary.txt' % info_dict['path'], 'w')
     f.write ('Information about the simulation:\n')
