@@ -1,25 +1,20 @@
 
 pyETC
 
+# Release status
 
+[![PyPI version](https://img.shields.io/pypi/v/pyETC.svg)](https://pypi.python.org/pypi/pyETC)
 
-.. image:: https://img.shields.io/pypi/v/pyETC.svg
-        :target: https://pypi.python.org/pypi/pyETC
-
-.. image:: https://img.shields.io/travis/dcorre/pyETC.svg
-        :target: https://travis-ci.org/dcorre/pyETC
-
-.. image:: https://readthedocs.org/projects/pyETC/badge/?version=latest
-        :target: https://pyETC.readthedocs.io/en/latest/?badge=latest
-        :alt: Documentation Status
+[![Docs](https://readthedocs.org/projects/pyETC/badge/?version=latest)](https://pyETC.readthedocs.io/en/latest/?badge=latest)
 
 # Development status
 
-[![Linux](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=Linux)](https://travis-ci.com/pyETC/pyETC)
+[![Build](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=Linux)](https://travis-ci.com/pyETC/pyETC)
+<!-- [![Linux](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=Linux)](https://travis-ci.com/pyETC/pyETC)
 [![OSX](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=OSX)](https://travis-ci.com/pyETC/pyETC)
 [![Windows](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=Windows)](https://travis-ci.com/pyETC/pyETC)
+-->
 [![codecov](https://codecov.io/gh/dcorre/pyETC/branch/master/graphs/badge.svg)](https://codecov.io/gh/dcorre/pyETC/branch/master)
-
 
 Exposure Time Calculator for optical/NIR telescope
 

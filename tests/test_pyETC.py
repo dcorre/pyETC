@@ -5,6 +5,7 @@
 
 import pytest
 import numpy as np
+import numpy.testing as npt
 
 from click.testing import CliRunner
 
@@ -46,5 +47,6 @@ def test_simple_run():
     # Execute
     COLIBRI_ETC.sim()
 
-    assert np.round(COLIBRI_ETC.information['mag'],3) == 9.812
+    npt.assert_almost_equal(np.round(COLIBRI_ETC.information['mag'],1), 9.8,
+                            decimal=1)
 
