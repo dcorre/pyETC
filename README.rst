@@ -13,7 +13,15 @@ pyETC
         :target: https://pyETC.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
+# Development status
 
+[![Linux](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=Linux)]
+
+
+[![Linux](https://img.shields.io/circleci/project/github/gwpy/gwpy/master.svg?label=Linux)](https://circleci.com/gh/gwpy/gwpy)
+[![OSX](https://img.shields.io/travis/gwpy/gwpy/master.svg?label=macOS)](https://travis-ci.com/gwpy/gwpy)
+[![Windows](https://img.shields.io/appveyor/ci/gwpy/gwpy/master.svg?label=Windows)](https://ci.appveyor.com/project/gwpy/gwpy/branch/master)
+[![codecov](https://codecov.io/gh/gwpy/gwpy/branch/master/graph/badge.svg)](https://codecov.io/gh/gwpy/gwpy)
 
 
 Exposure Time Calculator for optical/NIR telescope
