@@ -18,7 +18,6 @@ from pyETC.set_object import set_object
 from pyETC.optics import set_optics_transmission, load_optical_element
 from pyETC.write_results import write_results
 from pyETC.store_results import result_plot
-from pyETC.display import display
 
 __author__ = 'David Corre'
 __version__ = 1.0
