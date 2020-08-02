@@ -6,12 +6,11 @@
 
 [![Build Status](https://travis-ci.com/dcorre/pyETC.svg?branch=master)](https://travis-ci.com/dcorre/pyETC)
 [![codecov](https://codecov.io/gh/dcorre/pyETC/branch/master/graphs/badge.svg)](https://codecov.io/gh/dcorre/pyETC/branch/master)
-[![Docs](https://readthedocs.org/projects/pyETC/badge/?version=latest)](https://pyETC.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/pyetc/badge/?version=latest)](https://pyetc.readthedocs.io/en/latest/?badge=latest)
 <!-- [![Linux](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=Linux)](https://travis-ci.com/pyETC/pyETC)
 [![OSX](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=OSX)](https://travis-ci.com/pyETC/pyETC)
 [![Windows](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=Windows)](https://travis-ci.com/pyETC/pyETC)
 -->
-
 Exposure Time Calculator for optical/NIR telescope
 
 
