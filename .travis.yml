@@ -19,22 +19,23 @@ fast_finish: true
 
 before_install:
   - source ./ci/conda4travis_before.sh
-  - brew install git-lfs
 
 install:
   - set -ex;
   # install miniconda, create env, and activate
   - source ./ci/conda4travis.sh
   # install dependency
+  - pwd
+  - cd ../.. 
   - git clone https://github.com/dcorre/pyGRBaglow.git
   - cd pyGRBaglow
   - python setup.py develop
-  - cd ..
+  - cd ../dcorre/pyETC/
   # install this package
   - python setup.py develop
 
 # run tests
-script: 
+script:
   - pytest --cov-report=xml --cov=pyETC tests/
 
 # perform coverage
