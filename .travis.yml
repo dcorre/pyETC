@@ -31,10 +31,9 @@ install:
 
 # run tests
 script: 
-  - pytest --cov-report= --cov=pyETC tests/
-#   - coverage run tests
+  - pytest --cov-report=./ --cov=pyETC tests/
 
 # perform coverage
 after_success:
-  - bash -ex ci/codecov.sh       
-# - codecov
+# - bash -ex ci/codecov.sh       
+  - codecov
