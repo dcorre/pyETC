@@ -68,9 +68,6 @@ class etc():
 
    def load_telescope_design(self, name='default'):
        """ Load telescope params"""
-       print ('OHOHHOHOHOHOH')
-       print(glob.glob("%s/*" % self.path))
-       print(glob.glob("%s/telescope_database/*" % self.path))
 
        with open(self.path+'/telescope_database/%s.hjson' % (name),encoding='utf-8') as f:
            telescope_params=hjson.load(f)
