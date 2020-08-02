@@ -1,3 +1,9 @@
+Exposure Time Calculator for optical/NIR telescope
+--------------------------------------------------
+
+* Free software: MIT license
+* Documentation: https://pyETC.readthedocs.io.
+
 <!-- # Release status
 
 [![PyPI version](https://img.shields.io/pypi/v/pyETC.svg)](https://pypi.python.org/pypi/pyETC)
@@ -11,19 +17,14 @@
 [![OSX](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=OSX)](https://travis-ci.com/pyETC/pyETC)
 [![Windows](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=Windows)](https://travis-ci.com/pyETC/pyETC)
 -->
-Exposure Time Calculator for optical/NIR telescope
-
-
-* Free software: MIT license
-* Documentation: https://pyETC.readthedocs.io.
-
 
 Features
 --------
-
+* Exposure Time Calculator configurable for any telescope in the optical/NIR domain.
 * Telescope configuration and response defined by transmission curve of each optical element (mirrors, lenses, coating, filters, dichroics) and camera quntum efficiency. Also possible to provide only a global transmission curve.
-* Object can be a givn magnitude (AB or Vega), a file containing a spectrum or a light curve. Can also be a simulated GRB light curve through the connection with [pyGRBaglow](https://github.com/dcorre/pyGRBaglow)].
+* Object can be a givn magnitude (AB or Vega), a file containing a spectrum or a light curve. Can also be a simulated GRB light curve through the connection with [pyGRBaglow](https://github.com/dcorre/pyGRBaglow).
 * Output is provided through a python dictionary.
+* Have a look to the notebook(s) to see how it works.
 
 Credits
 -------
