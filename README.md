@@ -1,6 +1,6 @@
-=====
+
 pyETC
-=====
+
 
 
 .. image:: https://img.shields.io/pypi/v/pyETC.svg
@@ -16,7 +16,9 @@ pyETC
 # Development status
 
 [![Linux](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=Linux)](https://travis-ci.com/pyETC/pyETC)
-
+[![OSX](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=OSX)](https://travis-ci.com/pyETC/pyETC)
+[![Windows](https://img.shields.io/travis/dcorre/pyETC/master.svg?label=Windows)](https://travis-ci.com/pyETC/pyETC)
+[![codecov](https://codecov.io/gh/pyETC/pyETC/branch/master/graph/badge.svg)](https://codecov.io/gh/pyETC/pyETC)
 
 
 Exposure Time Calculator for optical/NIR telescope
