@@ -22,7 +22,7 @@ Features
 --------
 
 * Telescope configuration and response defined by transmission curve of each optical element (mirrors, lenses, coating, filters, dichroics) and camera quntum efficiency. Also possible to provide only a global transmission curve.
-* Object can be a givn magnitude (AB or Vega), a file containing a spectrum or a light curve. Can also be a simulated GRB light curve through the connection with pyGRBaglow.
+* Object can be a givn magnitude (AB or Vega), a file containing a spectrum or a light curve. Can also be a simulated GRB light curve through the connection with [pyGRBaglow](https://github.com/dcorre/pyGRBaglow)].
 * Output is provided through a python dictionary.
 
 Credits
