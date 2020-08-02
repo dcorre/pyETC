@@ -1,4 +1,4 @@
-# Exposure Time Calculator for optical/NIR telescope
+# Exposure Time Calculator for optical/NIR telescope
 
 * Free software: MIT license
 * Documentation: https://pyETC.readthedocs.io.
@@ -30,7 +30,5 @@ Features
 Credits
 -------
 
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the [audreyr/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage) project template.
 
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
