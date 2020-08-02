@@ -18,6 +18,7 @@ from pyETC.set_object import set_object
 from pyETC.optics import set_optics_transmission, load_optical_element
 from pyETC.write_results import write_results
 from pyETC.store_results import result_plot
+from pyETC.display import display
 
 __author__ = 'David Corre'
 __version__ = 1.0
@@ -59,7 +60,6 @@ class etc():
            self.information['plot'] = True
        else:
            self.information['plot'] = False
-
 
        # Add information to dictionary 
        self.information['path']=self.path
@@ -136,10 +136,10 @@ class etc():
        #------------------
        # Store Main results
        #--------------------
-       if self.information['verbose'] == True: write_results(self.information)
+       if self.information['verbose'] == True: 
+           write_results(self.information)
        #print (self.information['etc_plot'])
        if self.information['plot'] == True: 
-           
            result_plot(self.information,self.information['wavelength_ang'],self.information['fph'], self.information['Object_mag'])
 
        return None
