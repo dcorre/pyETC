@@ -10,7 +10,7 @@ from click.testing import CliRunner
 
 from pyETC import pyETC
 from pyETC import cli
-
+from pyETC.pyETC import etc
 
 @pytest.fixture
 def response():
@@ -40,8 +40,6 @@ def test_command_line_interface():
 
 def test_simple_run():
     """Test that one can make a run"""
-    from pyETC.pyETC import etc
-
     # load ETC with a config file and the COLIBRI caracteristics
     COLIBRI_ETC=etc(configFile='example.hjson',name_telescope='colibri')
 
@@ -49,3 +47,4 @@ def test_simple_run():
     COLIBRI_ETC.sim()
 
     assert np.round(COLIBRI_ETC.information['mag'],3) == 9.812
+

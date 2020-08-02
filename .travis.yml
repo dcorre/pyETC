@@ -25,7 +25,7 @@ install:
   # install miniconda, create env, and activate
   - source ./ci/conda4travis.sh
   # install this package
-  - python setup.py install
+  - python setup.py develop
 
 # run tests
 script: 
