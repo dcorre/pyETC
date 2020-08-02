@@ -1,5 +1,4 @@
-Exposure Time Calculator for optical/NIR telescope
---------------------------------------------------
+# Exposure Time Calculator for optical/NIR telescope
 
 * Free software: MIT license
 * Documentation: https://pyETC.readthedocs.io.
@@ -8,7 +7,9 @@ Exposure Time Calculator for optical/NIR telescope
 
 [![PyPI version](https://img.shields.io/pypi/v/pyETC.svg)](https://pypi.python.org/pypi/pyETC)
 -->
-# Development status
+
+Development status
+--------------------
 
 [![Build Status](https://travis-ci.com/dcorre/pyETC.svg?branch=master)](https://travis-ci.com/dcorre/pyETC)
 [![codecov](https://codecov.io/gh/dcorre/pyETC/branch/master/graphs/badge.svg)](https://codecov.io/gh/dcorre/pyETC/branch/master)
