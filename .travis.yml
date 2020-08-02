@@ -31,7 +31,7 @@ install:
 
 # run tests
 script: 
-  - pytest --cov-report term --cov=pyETC tests/
+  - pytest --cov-report= --cov=pyETC tests/
 #   - coverage run tests
 
 # perform coverage
