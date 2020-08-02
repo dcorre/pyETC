@@ -12,6 +12,7 @@ elif  [[ "$TRAVIS_OS_NAME" == "windows" ]]; then
     else
             miniconda_version = "miniconda3";
     fi;
+    echo "$miniconda_version";
     choco install $miniconda_version --params="'/JustMe /AddToPath:1 /D:$MINICONDA_PATH_WIN'";
 fi;
 # end installing miniconda

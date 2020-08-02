@@ -4,7 +4,7 @@
 language: minimal
 
 env:
-#  - PYTHON_VERSION=2.7
+  - PYTHON_VERSION=2.7
   - PYTHON_VERSION=3.6
 # - PYTHON_VERSION=3.7
 # - PYTHON_VERSION=3.8
@@ -30,8 +30,9 @@ install:
   - pip install codecov
 
 # run tests
-script: pytest
-
+script: 
+#  - pytest --cov-report=xml --cov=pyETC tests/
+   - coverage run tests
 # perform coverage
 after_success:
-  - bash -ex ci/codecov.sh
+  - codecov
