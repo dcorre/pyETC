@@ -4,6 +4,7 @@
 """Tests for `pyETC` package."""
 
 import pytest
+import numpy as np
 
 from click.testing import CliRunner
 
@@ -36,3 +37,15 @@ def test_command_line_interface():
     help_result = runner.invoke(cli.main, ['--help'])
     assert help_result.exit_code == 0
     assert '--help  Show this message and exit.' in help_result.output
+
+def test_simple_run():
+    """Test that one can make a run"""
+    from pyETC.pyETC import etc
+
+    # load ETC with a config file and the COLIBRI caracteristics
+    COLIBRI_ETC=etc(configFile='example.hjson',name_telescope='colibri')
+
+    # Execute
+    COLIBRI_ETC.sim()
+
+    assert np.round(COLIBRI_ETC.information['mag'],3) == 9.812
