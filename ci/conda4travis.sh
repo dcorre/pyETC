@@ -7,7 +7,13 @@ if [[ "$TRAVIS_OS_NAME" != "windows" ]]; then
 elif  [[ "$TRAVIS_OS_NAME" == "windows" ]]; then
     echo "folder $MINICONDA_SUB_PATH does not exist"
     echo "installing miniconda for windows";
-    choco install miniconda3 --params="'/JustMe /AddToPath:1 /D:$MINICONDA_PATH_WIN'";
+    if [[ ${PYTHON_VERSION} < 3 ]]; then
+	    miniconda_version = "miniconda";
+    else
+            miniconda_version = "miniconda3";
+    fi;
+    echo "$miniconda_version";
+    choco install $miniconda_version --params="'/JustMe /AddToPath:1 /D:$MINICONDA_PATH_WIN'";
 fi;
 # end installing miniconda
 
@@ -47,7 +53,8 @@ fi
 
 # install conda dependencies (based on pip requirements file)
 conda run --name test-env \
-conda install --name test-env --quiet --yes --file requirements_dev.txt --update-all
+#conda install --name test-env --quiet --yes --file requirements_dev.txt --update-all
+conda install --name test-env --yes --file requirements_dev.txt --update-all
 
 # activate the environment
 . ${CONDA_PATH}/etc/profile.d/conda.sh
