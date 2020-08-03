@@ -60,7 +60,6 @@ class etc():
        else:
            self.information['plot'] = False
 
-
        # Add information to dictionary 
        self.information['path']=self.path
        self.information['telescope']=name_telescope
@@ -136,10 +135,10 @@ class etc():
        #------------------
        # Store Main results
        #--------------------
-       if self.information['verbose'] == True: write_results(self.information)
+       if self.information['verbose'] == True: 
+           write_results(self.information)
        #print (self.information['etc_plot'])
        if self.information['plot'] == True: 
-           
            result_plot(self.information,self.information['wavelength_ang'],self.information['fph'], self.information['Object_mag'])
 
        return None

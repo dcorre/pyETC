@@ -10,9 +10,9 @@ env:
   - PYTHON_VERSION=3.8
 
 os:
-  - osx
+#  - osx
   - linux
-  - windows
+#  - windows
 
 # bail-out early for failures
 fast_finish: true
@@ -24,11 +24,17 @@ install:
   - set -ex;
   # install miniconda, create env, and activate
   - source ./ci/conda4travis.sh
+  # install dependency
+  - cd ..
+  - git clone https://github.com/dcorre/pyGRBaglow.git
+  - cd pyGRBaglow
+  - python setup.py develop
+  - cd ../pyETC/
   # install this package
   - python setup.py develop
 
 # run tests
-script: 
+script:
   - pytest --cov-report=xml --cov=pyETC tests/
 
 # perform coverage
