@@ -20,3 +20,4 @@ scipy
 scikit-image
 astropy
 jupyter
+cython
