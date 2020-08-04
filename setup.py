@@ -3,21 +3,8 @@
 
 """The setup script."""
 
-from __future__ import print_function
-
-import os, sys
-from distutils.version import LooseVersion
-
-from setuptools import (setup, find_packages,
-                        __version__ as setuptools_version)
-
-
-#import versioneer
-##from setup_utils import (CMDCLASS, get_setup_requires, get_scripts)
-#__version__ = versioneer.get_version()
-#CMDCLASS=versioneer.get_cmdclass()
-
-
+import sys
+from setuptools import setup, find_packages
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
@@ -25,9 +12,8 @@ with open('README.md') as readme_file:
 with open('docs/pyETC/history.rst') as history_file:
     history = history_file.read()
 
-
 # Cython is required by scikit-image
-install_requires = [
+requirements = [
         'Click>=6.0',
         'cython',
         'matplotlib',
@@ -35,28 +21,29 @@ install_requires = [
         'astropy',
         'jupyter',
         'scikit-image',
-        'hjson'
+        'hjson',
+        'cython',
+        'pyGRBaglow'
         ]
-
 
 setup_requirements = ['pytest-runner', 'numpy']
 
 test_requirements = ['pytest', ]
 
 setup(
-    author="David Corre, Alain Klotz",
+    author="David Corre",
     author_email='david.corre.fr@gmail.com',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
-        'Intended Audience :: Developers',
+        'Development Status :: 4 - Beta',
+        'Topic :: Scientific/Engineering :: Astronomy',
+        'Intended Audience :: Science/Research',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
-        "Programming Language :: Python :: 2",
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
     description="Exposure Time Calculator for optical/NIR telescope",
     entry_points={
@@ -64,14 +51,13 @@ setup(
             'pyETC=pyETC.cli:main',
         ],
     },
-    install_requires=install_requires,
+    install_requires=requirements,
     license="MIT license",
-    long_description=readme + '\n\n' + history,
-    include_package_data=True,
-    keywords='pyETC',
+    long_description=readme,
+    include_package_data=False,
+    keywords=['pyETC', 'ETC', 'astronomy', 'telescope'], 
     name='pyETC',
     packages=find_packages(),
-    #scripts=get_scripts(),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,

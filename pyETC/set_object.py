@@ -152,10 +152,10 @@ def set_object(info_dict):
                 grb_fJy *= madau(info_dict['wavelength_ang'],info_dict['grb_redshift'])
 
             if info_dict['host_extinction_law'] in ['mw','lmc','smc']:
-                grb_fJy *= reddening(info_dict['wavelength_ang'],info_dict['grb_redshift'],Av=info_dict['Av_Host']).Pei92(law=info_dict['host_extinction_law'])[1]
+                grb_fJy *= reddening(info_dict['wavelength_ang'],info_dict['grb_redshift'],Av=info_dict['Av_Host']).Pei92(ext_law=info_dict['host_extinction_law'])[1]
 
             if info_dict['galactic_extinction_law'].lower() != 'none':
-                grb_fJy *= reddening(info_dict['wavelength_ang'],0,Av=info_dict['Av_galactic']).Pei92(law='mw')[1]
+                grb_fJy *= reddening(info_dict['wavelength_ang'],0,Av=info_dict['Av_galactic']).Pei92(ext_law='mw')[1]
 
 
             """
