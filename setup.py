@@ -15,7 +15,6 @@ with open('docs/pyETC/history.rst') as history_file:
 requirements = [
         'Click>=6.0',
         'numpy',
-        'cython',
         'matplotlib',
         'scipy',
         'astropy',
