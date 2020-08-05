@@ -13,11 +13,5 @@ pytest
 pytest-runner
 pytest-cov
 
-#hjson
-matplotlib
 numpy
-scipy
-scikit-image
-astropy
-jupyter
 cython
