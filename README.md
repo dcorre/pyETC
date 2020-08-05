@@ -6,7 +6,7 @@
 Release status
 --------------
 
-[![PyPI version](https://badge.fury.io/py/pyETC.svg)](http://badge.fury.io/py/pyETC)
+[![PyPI version](https://badge.fury.io/py/pyETC.svg)](https://badge.fury.io/py/pyETC)
 ![Supported Python versions](https://img.shields.io/pypi/pyversions/pyETC.svg)
 
 
