@@ -53,6 +53,7 @@ setup(
     install_requires=requirements,
     license="MIT license",
     long_description=readme,
+    long_description_content_type='text/markdown',
     include_package_data=False,
     keywords=['pyETC', 'ETC', 'Exposure Time Calculator',
               'astronomy', 'telescope'],
