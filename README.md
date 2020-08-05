@@ -3,6 +3,12 @@
 * Free software: MIT license
 * Documentation: https://pyETC.readthedocs.io.
 
+Release status
+--------------
+
+[![PyPI version](https://badge.fury.io/py/pyETC.svg)](http://badge.fury.io/py/pyETC)
+![Supported Python versions](https://img.shields.io/pypi/pyversions/pyETC.svg)
+
 
 Development status
 --------------------
