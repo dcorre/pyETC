@@ -3,7 +3,6 @@
 
 """The setup script."""
 
-import sys
 from setuptools import setup, find_packages
 
 with open('README.md') as readme_file:
@@ -12,9 +11,10 @@ with open('README.md') as readme_file:
 with open('docs/pyETC/history.rst') as history_file:
     history = history_file.read()
 
-# Cython is required by scikit-image
+# Cython is required by scikit-image
 requirements = [
         'Click>=6.0',
+        'numpy',
         'cython',
         'matplotlib',
         'scipy',
@@ -26,7 +26,7 @@ requirements = [
         'pyGRBaglow'
         ]
 
-setup_requirements = ['pytest-runner', 'numpy']
+setup_requirements = ['pytest-runner']
 
 test_requirements = ['pytest', ]
 
@@ -55,7 +55,7 @@ setup(
     license="MIT license",
     long_description=readme,
     include_package_data=False,
-    keywords=['pyETC', 'ETC', 'astronomy', 'telescope'], 
+    keywords=['pyETC', 'ETC', 'astronomy', 'telescope'],
     name='pyETC',
     packages=find_packages(),
     setup_requires=setup_requirements,

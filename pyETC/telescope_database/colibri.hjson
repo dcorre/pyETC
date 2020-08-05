@@ -23,7 +23,7 @@
              }
 
 #FWHM of the optics in arcsec, different for each band 
-"Fwhm_psf_opt":{"g": 0.26,"r": 0.26,"i": 0.37,"z": 0.37,"y": 0.37,"J": 0.59,"H": 0.73,"gri": 0.3,"zy": 0.37, "V": 0.26, "R": 0.37}
+"Fwhm_psf_opt":{"g": 0.26,"r": 0.26,"i": 0.37,"z": 0.37,"y": 0.37,"J": 0.59,"H": 0.73,"gri": 0.3,"zy": 0.37, "V_bessel": 0.26, "R_bessel": 0.37}
 
 #-------- FILTER -----------------------------#
 #Detailed modelisation of the telescope and instrument
