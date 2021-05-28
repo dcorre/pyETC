@@ -10,7 +10,7 @@ from . import photometry as phot
 
 
 def set_object(info_dict):
-    """ Compute the number of electrons coming from the object per second
+    """Compute the number of electrons coming from the object per second
 
     Parameters
     ----------
@@ -38,9 +38,7 @@ def set_object(info_dict):
     elif info_dict["object_type"] == "spectrum":
 
         object_path = (
-            info_dict["path"]
-            + info_dict["object_folder"]
-            + info_dict["object_file"]
+            info_dict["path"] + info_dict["object_folder"] + info_dict["object_file"]
         )
 
         inFile = open(object_path, "r")
@@ -58,15 +56,18 @@ def set_object(info_dict):
         y = np.array(y, dtype=np.float64)
 
         f = interp1d(x, y, kind="linear")
-        if min(info_dict["wavelength_ang"]) < min(x) or \
-                max(info_dict["wavelength_ang"]) > max(x):
-            print("The wavelength coverage must be smaller or equal to the "
-                  "one of the input spectrum. Please adapt it in the "
-                  "configuration file.\nSpectrum wavelength coverage: "
-                  "%.2f-%.2f Angstroms\n" % (min(x), max(x)),
-                  "Current chosen wavelength coverage: "
-                  "%.2f-%.2f Angstroms" % (min(info_dict["wavelength_ang"]),
-                                           max(info_dict["wavelength_ang"])))
+        if min(info_dict["wavelength_ang"]) < min(x) or max(
+            info_dict["wavelength_ang"]
+        ) > max(x):
+            print(
+                "The wavelength coverage must be smaller or equal to the "
+                "one of the input spectrum. Please adapt it in the "
+                "configuration file.\nSpectrum wavelength coverage: "
+                "%.2f-%.2f Angstroms\n" % (min(x), max(x)),
+                "Current chosen wavelength coverage: "
+                "%.2f-%.2f Angstroms"
+                % (min(info_dict["wavelength_ang"]), max(info_dict["wavelength_ang"])),
+            )
         # erg/s/cm2/A
         flam = f(info_dict["wavelength_ang"])
         # ph/s/cm2/A
@@ -77,8 +78,7 @@ def set_object(info_dict):
         # e/s
         F_e_s = (
             np.trapz(
-                fph * info_dict["system_response"]
-                * info_dict["Trans_atmosphere"],
+                fph * info_dict["system_response"] * info_dict["Trans_atmosphere"],
                 info_dict["wavelength_ang"],
             )
             * info_dict["A_tel"]
@@ -92,11 +92,9 @@ def set_object(info_dict):
         if info_dict["grb_model"] != "LightCurve":
             if info_dict["grb_model"] == "gs02":
                 try:
-                    from pyGRBaglow.synchrotron_model import \
-                            fireball_afterglow as grb
+                    from pyGRBaglow.synchrotron_model import fireball_afterglow as grb
                 except ValueError:
-                    print("Package pyGRBaglow not found."
-                          "Need to be installed")
+                    print("Package pyGRBaglow not found." "Need to be installed")
 
                 td = info_dict["t_sinceBurst"]  # in days
                 DIT = info_dict["exptime"]  # in second
@@ -115,8 +113,7 @@ def set_object(info_dict):
                 time_grb = np.linspace(
                     td, td + DIT / 86400, 5
                 )  # divides exposure time in 5
-                frequencies = cc.c_light_m_s / (info_dict["wavelength_ang"]
-                                                * 1e-10)
+                frequencies = cc.c_light_m_s / (info_dict["wavelength_ang"] * 1e-10)
                 # in mJy
                 afterglow_lc = afterglow.light_curve(time_grb, frequencies)
                 # afterglow_lc2=afterglow.light_curve(td+DIT/2/86400,frequencies)
@@ -128,17 +125,14 @@ def set_object(info_dict):
                 try:
                     from pyGRBaglow.template_models import Templates as grb
                 except ValueError:
-                    print("Package grb_afterglow not found."
-                          "Need to be installed")
+                    print("Package grb_afterglow not found." "Need to be installed")
 
-                td = info_dict["t_sinceBurst"] * 86400  # in second
+                td = float(info_dict["t_sinceBurst"]) * 86400  # in second
                 DIT = info_dict["exptime"]  # in second
 
                 time_grb = np.linspace(td, td + DIT, 5)
                 afterglow = grb(
-                    F0=info_dict["F0"],
-                    t0=info_dict["t0"],
-                    wvl0=info_dict["wvl0"]
+                    F0=info_dict["F0"], t0=info_dict["t0"], wvl0=info_dict["wvl0"]
                 )
                 afterglow_lc = afterglow.light_curve(
                     info_dict["wavelength_ang"],
@@ -154,17 +148,15 @@ def set_object(info_dict):
                 try:
                     from pyGRBaglow.template_models import Templates as grb
                 except ValueError:
-                    print("Package grb_afterglow not found."
-                          "Need to be installed")
+                    print("Package grb_afterglow not found." "Need to be installed")
 
-                td = info_dict["t_sinceBurst"] * 86400  # in second
+                td = float(info_dict["t_sinceBurst"]) * 86400  # in second
                 DIT = info_dict["exptime"]  # in second
 
                 time_grb = np.linspace(td, td + DIT, 5)
+
                 afterglow = grb(
-                    F0=info_dict["F0"],
-                    t0=info_dict["t0"],
-                    wvl0=info_dict["wvl0"]
+                    F0=info_dict["F0"], t0=info_dict["t0"], wvl0=info_dict["wvl0"]
                 )
                 afterglow_lc = afterglow.light_curve(
                     info_dict["wavelength_ang"],
@@ -215,17 +207,14 @@ def set_object(info_dict):
                 from pyGRBaglow.igm import meiksin, madau
                 from pyGRBaglow.reddening import reddening
             except ValueError:
-                print("Package los_extinction not found."
-                      "Need to be installed")
+                print("Package los_extinction not found." "Need to be installed")
 
             if info_dict["IGM_extinction_model"] == "meiksin":
                 grb_fJy *= meiksin(
-                    info_dict["wavelength_ang"] / 10.,
-                    info_dict["grb_redshift"]
+                    info_dict["wavelength_ang"] / 10.0, info_dict["grb_redshift"]
                 )
             elif info_dict["IGM_extinction_model"] == "madau":
-                grb_fJy *= madau(info_dict["wavelength_ang"],
-                                 info_dict["grb_redshift"])
+                grb_fJy *= madau(info_dict["wavelength_ang"], info_dict["grb_redshift"])
 
             if info_dict["host_extinction_law"] in ["mw", "lmc", "smc"]:
                 grb_fJy *= reddening(
@@ -337,8 +326,7 @@ def set_object(info_dict):
         # e/s
         F_e_s = (
             np.trapz(
-                fph * info_dict["system_response"]
-                * info_dict["Trans_atmosphere"],
+                fph * info_dict["system_response"] * info_dict["Trans_atmosphere"],
                 info_dict["wavelength_ang"],
             )
             * info_dict["A_tel"]
