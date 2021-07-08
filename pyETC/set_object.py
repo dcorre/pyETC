@@ -204,29 +204,40 @@ def set_object(info_dict):
 
             # Apply Host galaxy and IGM extinction
             try:
-                from pyGRBaglow.igm import meiksin, madau
-                from pyGRBaglow.reddening import reddening
-            except ValueError:
-                print("Package los_extinction not found." "Need to be installed")
+                from pyGRBaglow.reddening_cy import Pei92
+            except:
+                from pyGRBaglow.reddening import Pei92
 
             if info_dict["IGM_extinction_model"] == "meiksin":
+                try:
+                    from pyGRBaglow.igm_cy import meiksin
+                except:
+                    from pyGRBaglow.igm import meiksin
+
                 grb_fJy *= meiksin(
                     info_dict["wavelength_ang"] / 10.0, info_dict["grb_redshift"]
                 )
             elif info_dict["IGM_extinction_model"] == "madau":
+                from pyGRBaglow.igm import madau
                 grb_fJy *= madau(info_dict["wavelength_ang"], info_dict["grb_redshift"])
 
             if info_dict["host_extinction_law"] in ["mw", "lmc", "smc"]:
-                grb_fJy *= reddening(
+                grb_fJy *= Pei92(
                     info_dict["wavelength_ang"],
+                    info_dict["Av_Host"],
                     info_dict["grb_redshift"],
-                    Av=info_dict["Av_Host"],
-                ).Pei92(ext_law=info_dict["host_extinction_law"])[1]
+                    ext_law=info_dict["host_extinction_law"],
+                    Xcut=True
+                )[1]
 
             if info_dict["galactic_extinction_law"].lower() != "none":
-                grb_fJy *= reddening(
-                    info_dict["wavelength_ang"], 0, Av=info_dict["Av_galactic"]
-                ).Pei92(ext_law="mw")[1]
+                grb_fJy *= Pei92(
+                    info_dict["wavelength_ang"],
+                    info_dict["Av_galactic"],
+                    0.,
+                    ext_law="mw",
+                    Xcut=True
+                )[1]
 
             """
             Integration over the exposure time for each wavelength because
