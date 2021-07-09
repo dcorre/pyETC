@@ -226,7 +226,7 @@ def set_object(info_dict):
                     info_dict["wavelength_ang"],
                     info_dict["Av_Host"],
                     info_dict["grb_redshift"],
-                    ext_law=info_dict["host_extinction_law"],
+                    ext_law=str(info_dict["host_extinction_law"]),
                     Xcut=True
                 )[1]
 
