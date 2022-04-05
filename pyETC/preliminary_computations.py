@@ -4,7 +4,7 @@
 import numpy as np
 from scipy.integrate import dblquad
 from scipy.interpolate import interp1d
-from skimage.draw import circle
+from skimage.draw import disk
 from astropy.io import ascii
 
 from . import photometry as phot
@@ -570,13 +570,13 @@ def nb_pixels(info_dict):
 
     elif info_dict["PSF_position_on_ccd"] == "center":
         img1 = np.zeros((100, 100), dtype=np.uint8)
-        rr1, cc1 = circle(50, 50, R_source + 0.5)
+        rr1, cc1 = disk((50, 50), R_source + 0.5)
         img1[rr1, cc1] = 1
         npix = np.sum(img1)
 
     elif info_dict["PSF_position_on_ccd"] == "corner":
         img2 = np.zeros((100, 100), dtype=np.uint8)
-        rr2, cc2 = circle(50.5, 50.5, R_source + 0.5)
+        rr2, cc2 = disk((50.5, 50.5), R_source + 0.5)
         img2[rr2, cc2] = 1
         npix = np.sum(img2)
 
